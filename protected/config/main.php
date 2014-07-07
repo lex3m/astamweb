@@ -56,7 +56,7 @@ return array(
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',
-            'table_prefix' => 'tbl_',
+            'tablePrefix' => 'tbl_',
 		),
 
 		'errorHandler'=>array(
