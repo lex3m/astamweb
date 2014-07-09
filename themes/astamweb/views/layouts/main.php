@@ -119,7 +119,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
 
             <div class="hederight">
 
-                <a class="logo" href="<?php echo Yii::app()->request->baseUrl; ?>">
+                <a class="logo" href="<?php echo Yii::app()->request->baseUrl; ?>/">
                     <img alt="logo" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/logo.png" />
                 </a>
 
