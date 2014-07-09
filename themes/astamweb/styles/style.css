@@ -1,0 +1,2068 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html {
+	height: 100%;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary, menu {
+	display: block;
+}
+body {
+	font-family: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
+	height: 100%;
+    font-size: 15px;
+	line-height: 20px;
+}
+table {
+    border-collapse: collapse;
+}
+a {
+    font-family: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
+
+}
+img {
+	outline: medium none;
+	border: medium none;
+}
+p {
+    font-family: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
+}
+h1, h2, h3, h4, h5, h6, li {
+    font-family: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
+}
+input, label {
+    font-family: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
+	font-size: 14px;
+}
+.wrapper {
+    width: 100%;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+.knopka {
+    background: none repeat scroll 0 0 #FD9F01;
+    border: medium none;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 65px;
+}
+.knopka:hover {
+    background: none repeat scroll 0 0 #ff8603;
+}
+.knopka:active {
+    background: none repeat scroll 0 0 #ff8603;
+	color: #000000;
+}
+
+/* Header
+-----------------------------------------------------------------------------*/
+.header {
+	height: 195px;
+    min-width: 900px;
+	max-width: 1650px;
+	margin: 0 auto;
+}
+.werh {
+    overflow: hidden;    
+}
+
+.hederight {
+    overflow: hidden;
+    padding: 47px 0 0;
+    width: 100%;
+	overflow: visible;
+	position: relative;
+}
+.logo {
+    display: block;
+    float: left;
+}
+.logo img {
+    display: block;
+    left: 7%;
+    margin: -7px auto 0;
+    position: absolute;
+}
+.infoheder {
+    float: right;
+	margin-right: 2%;
+}
+.menuheader {
+    overflow: hidden;
+}
+.menuheader ul {
+    list-style: none outside none;
+}
+.menuheader ul li {
+    float: left;
+	margin-left: 8px;
+}
+.menuheader ul li a {
+    background: none repeat scroll 0 0 #C542E6;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+} 
+.menuheader ul li a:hover {
+    background: #AE1BD2;
+} 
+
+.swyazverh {
+    overflow: hidden;
+	padding-left: 9px;
+    padding-top: 19px;
+}
+.pochta {
+    color: #C542E6;
+    float: left;
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 9px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.pochta:hover {
+    text-decoration: underline;
+}
+
+.sotcheader {
+    float: right;
+}
+.sotcheader a {
+     float: left;
+	 height: 38px;
+}
+.sotcheader a.vk {
+    background: url("../images/narezka/sotc.jpg") no-repeat scroll 0 0;
+    width: 38px;
+}
+.sotcheader a.ok {
+    background: url("../images/narezka/sotc.jpg") no-repeat scroll -38px 0;
+    width: 37px;
+}
+.sotcheader a.f {
+    background: url("../images/narezka/sotc.jpg") no-repeat scroll -75px 0;
+    width: 36px;
+}
+.sotcheader a.tv {
+    background: url("../images/narezka/sotc.jpg") no-repeat scroll -112px 0;
+    width: 37px;
+}
+.sotcheader a.p {
+    background: url("../images/narezka/sotc.jpg") no-repeat scroll -148px 0;
+    width: 38px;
+}
+.sotcheader a.sk {
+    background: url("../images/narezka/sotc.jpg") no-repeat scroll -188px 0;
+    width: 36px;
+}
+.sotcheader a:hover {
+    opacity: 0.5;
+}
+
+
+.zakazheder {
+    float: right;
+    margin-right: -30px;
+}
+.zakaz1 table {
+}
+.zakaz1 table tbody tr td {
+    border: 0;
+}
+.zakaz1 table tbody tr td input {
+    border: 1px solid #C542E6;
+    margin: 0 30px 17px 0;
+    padding: 10px 17px;
+    width: 214px;
+}
+.zakaz1 table tbody tr td button {
+    background: url("../images/narezka/arr_zakazat.png") no-repeat scroll 182px center #C542E6;
+    border: 1px solid #C542E6;
+    display: block;
+	margin: 0 30px 17px 0;
+    padding: 10px 17px;
+    text-align: left;
+    width: 250px;	
+	color: #FFFFFF;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 8px 14px;
+    text-transform: uppercase;
+}
+.zakaz1 table tbody tr td button:hover {
+    background: url("../images/narezka/arr_zakazat.png") no-repeat scroll 182px center #AE1BD2;
+} 
+
+
+/* slider 1 --------------------------------------------------------------- */
+.sliders {
+    margin: 0 auto 75px;
+    max-width: 1660px;
+    min-width: 900px;
+	overflow: hidden;
+	
+}
+.slider_col1, .slider_col3 {
+    float: left;
+    overflow: hidden;
+    width: 32%;
+}
+.slider_col2 {
+    float: left;
+    overflow: hidden;
+    margin: 0 1.6%;
+	width: 32.4%;
+}
+.slider_pril {
+    height: 351px;
+}
+.slider_razrabot {
+    height: 351px;
+}
+.slider_site {
+    height: 735px;
+}
+.slider_video {
+    height: 351px;
+}
+.slider_nastroy {
+    height: 351px;
+}
+.fader{
+    position: relative;
+    margin-bottom: 25px;
+    overflow: hidden;
+    /*background: none repeat scroll 0 0 #DEF1F8;*/
+	background: none repeat scroll 0 0 #FFFFFF;
+}
+ 
+.fader .slide{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 1;
+    opacity: 0;
+}
+ 
+.fader .slide{
+    height: auto;
+}
+.a_slid {
+   display: block;
+}
+.fader .slide a img {
+   width: 100%;
+   display: block;
+}
+
+.fader .prev,
+.fader .next{
+  position: absolute;
+  height: 80px;
+  line-height: 55px;
+  width: 50px;
+  font-size: 100px;
+  text-align: center;
+  color: #fff;
+  top: 50%;
+  left: 0;
+  z-index: 4;
+  margin-top: -25px;
+  cursor: pointer;
+  opacity: .7;
+  transition: all 150ms;
+}
+
+.fader .prev:hover,
+.fader .next:hover{
+  opacity: 1;
+}
+
+.fader .next{
+  left: auto;
+  right: 0;
+}
+
+.fader .fader_controls h2 {
+    color: #C542E6;
+    line-height: 35px;
+    padding-top: 118px;
+    text-align: center;
+    text-transform: uppercase;
+	-webkit-transform: rotate(-15.5deg);
+    -moz-transform: rotate(-15.5deg);
+    -o-transform: rotate(-15.5deg);
+    transform: rotate(-15.5deg);
+
+
+}
+.slider_pril .fader_controls h2, .slider_video .fader_controls h2 {
+    font-size: 40px;
+	font-weight: bold;
+}
+.slider_pril .fader_controls h2 span, .slider_video .fader_controls h2 span {
+    font-size: 16px;
+	font-weight: normal;
+}
+.slider_razrabot .fader_controls h2, .slider_nastroy .fader_controls h2 {
+    font-size: 30px;
+	font-weight: bold;
+}
+.slider_site .fader_controls {
+    height: 440px;
+}
+.slider_site .fader_controls h2 {
+    font-size: 60px;
+	font-weight: bold;
+	padding-top: 200px;
+}
+.slider_site .fader_controls h2 span {
+    font-size: 23px;
+	font-weight: normal;
+}
+.fader .pager_list{
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 30px;
+  line-height: 40px;
+  bottom: 0;
+  text-align: center;
+  z-index: 4;
+}
+
+.fader .pager_list li{
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  margin: 0 7px;
+  background: #FFFFFF;
+  opacity: 0.4;
+  list-style: none;
+  text-indent: -999px;
+  text-align: right;
+  -moz-border-radius: 999px;
+  -webkit-border-radius: 999px;
+  -khtml-border-radius: 999px;
+  border-radius: 999px;
+  cursor: pointer;
+  color: #FF8015;
+  transition: all 150ms;
+}
+
+.fader .pager_list li:hover,
+.fader .pager_list li.active{
+  opacity: 1;
+}
+  
+.navslider2 {
+    bottom: 0;
+    height: 248px;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    z-index: 11;
+	opacity: 1;
+	-webkit-transition: all 1.2s ease-out 0s;
+    -moz-transition: all 1.2s ease-out 0s;
+    -o-transition: all 1.2s ease-out 0s;
+    transition: all 1.2s ease-out 0s;
+}
+.slider_pril .navslider2 {
+    background: url("../images/narezka/layer_prozor_pril.png") no-repeat scroll 0 0;
+}
+.slider_razrabot .navslider2 {
+    background: url("../images/narezka/layer_prozor_razrabot.png") no-repeat scroll 0 0;
+}
+.slider_site .navslider2 {
+    background: url("../images/narezka/layer_prozor_site.png") no-repeat scroll 0 0;
+} 
+.slider_video .navslider2 {
+    background: url("../images/narezka/layer_prozor_video.png") no-repeat scroll 0 0;
+}  
+.slider_nastroy .navslider2 {
+    background: url("../images/narezka/layer_prozor_reklama.png") no-repeat scroll 0 0;
+} 
+.fader:hover .fader_controls {
+	opacity: 0;
+	bottom: -350px;
+}
+/* end slider 1 --------------------------------------------------------------- */
+
+.studio {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/* block preimuchestva ---------------------------------------------------------------- */
+.preimuchestva {
+    background: url("../images/narezka/bg_block2.jpg") no-repeat scroll center 0 #D5035C;
+	height: 998px;
+	color: #FFFFFF;
+	width: 100%;
+}
+ #parallax {
+    height: 700px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    top: 260px;
+    width: 90%;
+ }
+  #parallax img {
+    height: 542px;
+	width: 1226px;
+ }
+.preim_bg {
+    position:relative; 
+    max-width: 1660px;
+    min-width: 900px;
+    padding: 127px 0 0;
+	width: 100%;
+	margin: -718px auto 0;
+}
+.preim_bg h2 {
+    display: block;
+    font-size: 55px;
+    font-weight: bold;
+    line-height: 60px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+}
+.delaem {
+    font-size: 45px;
+    font-weight: normal;
+    line-height: 57px;
+    overflow: hidden;
+    padding: 40px 0 0;
+    width: 100%;
+}
+.delaem1 {
+    float: left;
+    padding-right: 3%;
+    text-align: right;
+    width: 47%;
+}
+.delaem2 {
+    border-left: 2px solid #FFFFFF;
+    float: left;
+    padding-left: 3%;
+    width: 45%;
+}
+.allsite {
+    overflow: hidden;
+	height: 522px;
+    position: relative;
+    width: 100%;
+	margin-top: 57px;
+}
+.allsite a {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+	display: block;
+	text-transform: uppercase;
+}
+.allsite a:hover {
+    color: #c2df00;
+	-moz-transform: scale(1.03);
+	-webkit-transform: scale(1.03);
+	-khtml-transform: scale(1.03);
+	transform: scale(1.03);
+}
+a.moda {
+    background: url("../images/narezka/site_moda.png") no-repeat scroll 0 0;
+    height: 131px;
+    left: 138px;
+    position: absolute;
+    top: 50px;
+    width: 440px;
+    z-index: 5;
+}
+a.kupony {
+    background: url("../images/narezka/site_kupony.png") no-repeat scroll 0 0;
+    bottom: 30px;
+    height: 80px;
+    left: 150px;
+    padding: 153px 0 0;
+    position: absolute;
+    text-align: right;
+    width: 345px;
+}
+a.kreativ {
+    background: url("../images/narezka/site_kreativ.png") no-repeat scroll 0 0;
+    height: 50px;
+    left: 524px;
+    padding: 250px 0 0;
+    position: absolute;
+    top: 108px;
+    width: 351px;
+}
+a.prezent {
+    background: url("../images/narezka/site_prezent.png") no-repeat scroll 0 0;
+    height: 132px;
+    padding: 2px 0 0 240px;
+    position: absolute;
+    right: 266px;
+    top: 5px;
+    width: 238px;
+}
+a.zdorov {
+    background: url("../images/narezka/site_zdorov.png") no-repeat scroll 0 0;
+    height: 198px;
+    padding: 5px 0 0 69px;
+    position: absolute;
+    right: 216px;
+    top: 158px;
+    width: 250px;
+}
+a.restoran {
+    background: url("../images/narezka/site_restoran.png") no-repeat scroll 0 0;
+    bottom: 0;
+    height: 62px;
+    padding: 90px 0 0 245px;
+    position: absolute;
+    right: 256px;
+    width: 355px;
+}
+a.restoran span {
+    padding-left: 210px;
+}
+/* end block preimuchestva -------------------------------------------------------- */
+
+/* block uslugi  ------------------------------------------------------------------ */
+
+.uslugy {
+    background: url("../images/narezka/line_duble.png") repeat-x scroll 0 167px #FFFFFF;
+    padding: 130px 0 100px;
+	width: 100%;
+}
+.uslugy h2 {
+    background: url("../images/narezka/smail_yazyk.png") no-repeat scroll right 0 #FFFFFF;
+    display: block;
+    font-size: 55px;
+    font-weight: bold;
+    height: 65px;
+    margin: 0 auto;
+    padding: 33px 0 0 34px;
+    text-transform: uppercase;
+    width: 552px;
+}
+.uslugy_box {
+    width: 100%;
+}
+.uslugy_box div {
+    padding: 25px 0;
+	border-bottom: 1px solid #000000;
+	height: 338px;
+}
+.uslugy_box_1 {
+    background: url("../images/narezka/block_3_site_bg.jpg") repeat-x scroll 0 25px #FFFFFF;
+}
+.uslugy_box_2 {
+    background: url("../images/narezka/block_3_mobil_bg.jpg") repeat-x scroll 0 25px #FFFFFF;
+}
+.uslugy_box_3 {
+    background: url("../images/narezka/block_3_video_bg.jpg") repeat-x scroll 0 25px #FFFFFF;
+}
+.uslugy_box div .usl_div {
+    display: block;
+    margin: 0 auto;
+    max-width: 1660px;
+    min-height: 328px;
+    min-width: 900px;
+    overflow: hidden;
+	padding: 0 0 25px;
+	border: medium none;
+}
+.uslugy1 {
+    background: url("../images/narezka/block_3_site.jpg") no-repeat scroll center 0;
+}
+.uslugy2 {
+    background: url("../images/narezka/block_3_mobil.jpg") no-repeat scroll center 0;
+
+}
+.uslugy3 {
+    background: url("../images/narezka/block_3_video.jpg") no-repeat scroll center 0;
+}
+.uslugy4 {
+    border: medium none !important;
+    height: 70px !important;
+    margin: 0 auto;
+    max-width: 820px;
+    min-width: 820px;
+    padding: 15px !important;
+}
+.uslugy_ul {
+    padding: 0 0 0 415px;
+}
+.uslugy2 ul.uslugy_ul {
+	padding-top: 33px;
+}
+.uslugy_box div div ul li {
+    display: table;
+    width: 953px;
+	list-style: none outside none;
+}
+.uslugy2 ul.uslugy_ul li {
+    padding-bottom: 18px;
+}
+.cel {
+    border: medium none !important;
+    display: table-cell;
+    height: 85px !important;
+    padding: 0 !important;
+    vertical-align: middle;
+}
+.cel a {
+    display: inline-block;
+}
+.uslugy .uslugy_box div div ul li a, .uslugy4 div.cel span {
+    border-right: 3px solid #000000;
+    color: #000000;
+    font-size: 34px;
+    font-weight: bold;    
+    line-height: 36px;
+    padding-right: 20px;
+    text-decoration: none;
+    text-transform: none;
+    
+}
+.uslugy .uslugy_box div div ul li a span {
+    text-transform: uppercase;
+}
+.uslugy .uslugy_box div div ul li span.usl_info {
+    color: #989898;
+    font-size: 22px;
+    padding-left: 20px;
+    position: relative;
+    top: -5px;
+	display: inline-block;
+}
+.uslugy4 div.cel a.usl_info {
+    background: url("../images/narezka/arr_seraya.png") no-repeat scroll right 5px rgba(0, 0, 0, 0);
+    color: #989898;
+    display: inline-block;
+    font-size: 22px;
+    padding: 0 20px;
+    position: relative;
+    text-decoration: none;
+    top: 2px;
+}
+.uslugy4 div.cel a.usl_info:hover {
+    text-decoration: underline;
+}
+.top1 {
+    top: -25px !important;
+}
+.top2 {
+    top: -2px !important;
+}
+.uslugy .uslugy_box div ul li a.usl_right {
+    border: medium none;
+    font-size: 26px;
+    text-align: right;
+	text-transform: uppercase;
+	display: table-cell;
+	vertical-align: middle;
+	height: 85px;
+}
+.uslugy1 a.usl_right {
+    color: #c2df00 !important;
+}
+.uslugy2 a.usl_right {
+    color: #72d102 !important;
+}
+.uslugy3 a.usl_right {
+    color: #e5c703 !important;
+}
+.uslugy .uslugy_box div div ul li a.usl_right:hover {
+    color: #DC1B6C !important;
+}
+.bn {
+    border: medium none !important;
+}
+
+
+/* end block uslugi  ------------------------------------------------------------------ */
+
+/* block idea  ------------------------------------------------------------------------ */
+.idea {
+    background: url("../images/narezka/bg_block_4_fon_r.jpg") no-repeat scroll right 0 #8E06B1;
+	margin-bottom: -51px;
+	height: 1000px;
+}
+.idea_box {
+    background: url("../images/narezka/bg_block_4.jpg") no-repeat scroll center 0;
+    max-width: 1660px;
+    min-width: 900px;
+    position: relative;
+	margin: 0 auto 0;
+	top: -51px;
+	height: 1051px;
+}
+.idea_content {
+    margin: 0 auto;
+    padding: 123px 0 0 356px;
+    width: 750px;
+}
+.idea_content p {
+    color: #FFFFFF;
+    font-size: 27px;
+    line-height: 40px;
+}
+.uppercase1 {
+    color: #000000;
+    font-size: 35px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.color1 {
+    color: #000000;
+    font-weight: bold;
+}
+.idea_block2 {
+    color: #770195;
+    font-size: 27px;
+    line-height: 40px;
+    padding: 79px 0 86px 65px;
+    position: relative;
+}
+.knopka1 {
+    background: none repeat scroll 0 0 #C542E6;
+    color: #FFFFFF;
+    margin: 0 16px 0 10px;
+    padding: 2px 20px 6px 18px;
+    text-decoration: none;
+}
+.knopka1:hover {
+    background: none repeat scroll 0 0 #8E06B1;
+}
+.bold {
+    font-weight: bold;
+}
+.komandos {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 37px;
+	
+	-webkit-transition: all 1.5s ease-out 0s;
+    -moz-transition: all 1.5s ease-out 0s;
+    -o-transition: all 1.5s ease-out 0s;
+    transition: all 1.5s ease-out 0s;
+}
+.idea_block2:hover .komandos {
+    -moz-transform: rotate(30deg); /* Для Firefox */
+    -ms-transform: rotate(30deg); /* Для IE */
+    -webkit-transform: rotate(30deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(30deg); /* Для Opera */
+    transform: rotate(30deg);
+}
+.para {
+    bottom: 70px;
+    position: absolute;
+    right: 24px;
+}
+.para:hover {
+    bottom: 80px;
+}
+.grafik {
+    bottom: 270px;
+    position: absolute;
+    right: -20px;
+	
+	-webkit-transition: all 1.5s ease-out 0s;
+    -moz-transition: all 1.5s ease-out 0s;
+    -o-transition: all 1.5s ease-out 0s;
+    transition: all 1.5s ease-out 0s;
+}
+.grafik:hover {
+    -moz-transform: rotate(-15deg); /* Для Firefox */
+    -ms-transform: rotate(-15deg); /* Для IE */
+    -webkit-transform: rotate(-15deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(-15deg); /* Для Opera */
+    transform: rotate(-15deg);
+}
+
+/* end block idea  -------------------------------------------------------------------- */
+
+/* block my  -------------------------------------------------------------------------- */
+.my {
+    margin: 0;
+    overflow: hidden;
+    width: 100%;
+}
+.mybox {
+    margin: 0 auto 115px;
+    overflow: hidden;
+    padding-top: 150px;
+    position: relative;
+    width: 1126px;
+}
+.img_my {
+    background: url("../images/narezka/bg_block_5_my_ef.jpg") no-repeat scroll 0 center #FFFFFF;
+    height: 351px;
+    margin-bottom: 15px;
+    position: relative;
+    width: 1125px;
+}
+.img_my img { 
+    display: block;
+    height: 84px;
+    position: absolute;
+    width: 84px;
+}
+.anton {
+    left: -60%;
+    top: 0;
+	-webkit-transition: all 0.3s ease-out 0s;
+    -moz-transition: all 0.3s ease-out 0s;
+    -o-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;	
+}
+.my:hover .mybox  .img_my .anton {
+    left: 616px;
+    top: -5px;
+}
+
+.leha {
+    right: -60%;
+    top: 70px;
+	-webkit-transition: all 2.5s ease-out 0s;
+    -moz-transition: all 2.5s ease-out 0s;
+    -o-transition: all 2.5s ease-out 0s;
+    transition: all 2.5s ease-out 0s;	
+}
+.my:hover .mybox  .img_my .leha {
+    right: 52px;
+    top: 157px;
+}
+
+.platon {
+    left: -60%;
+    top: 70px;
+	-webkit-transition: all 2s ease-out 0s;
+    -moz-transition: all 2s ease-out 0s;
+    -o-transition: all 2s ease-out 0s;
+    transition: all 2s ease-out 0s;	
+}
+.my:hover .mybox  .img_my .platon {
+    left: 369px;
+    top: 169px;
+}
+
+.evgeniy {
+    right: -60%;
+    top: 50px;
+	-webkit-transition: all 1.2s ease-out 0.4s;
+    -moz-transition: all 1.2s ease-out 0.4s;
+    -o-transition: all 1.2s ease-out 0.4s;
+    transition: all 1.2s ease-out 0.4s;	
+}
+.my:hover .mybox  .img_my .evgeniy {
+    right: 174px;
+    top: 131px;
+}
+
+.dima {
+    left: -60%;
+    bottom: 0;
+	-webkit-transition: all 0.3s ease-out 0.3s;
+    -moz-transition: all 0.3s ease-out 0.3s;
+    -o-transition: all 0.3s ease-out 0.3s;
+    transition: all 0.3s ease-out 0.3s;	
+}
+.my:hover .mybox .img_my .dima {
+    bottom: 3px;
+    left: 651px;
+}
+
+.vova {
+    left: -60%;
+    bottom: 50px;
+	-webkit-transition: all 0.6s ease-out 0.3s;
+    -moz-transition: all 0.6s ease-out 0.3s;
+    -o-transition: all 0.6s ease-out 0.3s;
+    transition: all 0.6s ease-out 0.3s;	
+}
+.my:hover .mybox .img_my .vova {
+    bottom: 98px;
+    left: 637px;
+}
+
+.dmitriy {
+    left: -60%;
+    bottom: 0;
+	-webkit-transition: all 1s ease-out 0.4s;
+    -moz-transition: all 1s ease-out 0.4s;
+    -o-transition: all 1s ease-out 0.4s;
+    transition: all 1s ease-out 0.4s;	
+}
+.my:hover .mybox .img_my .dmitriy {
+    bottom: 0;
+    left: 500px;
+}
+
+.viola {
+    left: -60%;
+    top: 50px;
+	-webkit-transition: all 1s ease-out 0.2s;
+    -moz-transition: all 1s ease-out 0.2s;
+    -o-transition: all 1s ease-out 0.2s;
+    transition: all 1s ease-out 0.2s;	
+}
+.my:hover .mybox .img_my .viola {
+    left: 552px;
+    top: 127px;
+}
+
+.evgeniya {
+    right: -60%;
+    top: 40px;
+	-webkit-transition: all 0.5s ease-out 0.2s;
+    -moz-transition: all 0.5s ease-out 0.2s;
+    -o-transition: all 0.5s ease-out 0.2s;
+    transition: all 0.5s ease-out 0.2s;	
+}
+.my:hover .mybox .img_my .evgeniya {
+    right: 298px;
+    top: 101px;
+}
+
+.alyena {
+    right: -60%;
+    bottom: 0px;
+	-webkit-transition: all 3s ease-out 0.5s;
+    -moz-transition: all 3s ease-out 0.5s;
+    -o-transition: all 3s ease-out 0.5s;
+    transition: all 3s ease-out 0.5s;	
+}
+.my:hover .mybox .img_my .alyena {
+    bottom: 2px;
+    right: 54px;
+}
+
+.sacsha {
+    right: -60%;
+    bottom: 0px;
+	-webkit-transition: all 1s ease-out 0.4s;
+    -moz-transition: all 1s ease-out 0.4s;
+    -o-transition: all 1s ease-out 0.4s;
+    transition: all 1s ease-out 0.4s;	
+}
+.my:hover .mybox .img_my .sacsha {
+    bottom: 4px;
+    right: 292px;
+}
+
+.lena {
+    left: -60%;
+    bottom: 0px;
+	-webkit-transition: all 3s ease-out 0s;
+    -moz-transition: all 3s ease-out 0s;
+    -o-transition: all 3s ease-out 0s;
+    transition: all 3s ease-out 0s;	
+}
+.my:hover .mybox .img_my .lena {
+    bottom: 2px;
+    left: 361px;
+}
+
+.lyuda {
+    top: 0;
+    right: -60%;
+	-webkit-transition: all 1s ease-out 0.4s;
+    -moz-transition: all 1s ease-out 0.4s;
+    -o-transition: all 1s ease-out 0.4s;
+    transition: all 1s ease-out 0.4s;	
+}
+.my:hover .mybox .img_my .lyuda {
+    right: 293px;
+    top: -4px;
+}
+
+.andrey {
+    left: -60%;
+    top: 40px;
+	-webkit-transition: all 1.2s ease-out 0.4s;
+    -moz-transition: all 1.2s ease-out 0.4s;
+    -o-transition: all 1.2s ease-out 0.4s;
+    transition: all 1.2s ease-out 0.4s;		
+}
+.my:hover .mybox .img_my .andrey {
+    left: 439px;
+    top: 86px;
+}
+
+.sveta {
+    left: -60%;
+    top: 0px;
+	-webkit-transition: all 0.6s ease-out 0.3s;
+    -moz-transition: all 0.6s ease-out 0.3s;
+    -o-transition: all 0.6s ease-out 0.3s;
+    transition: all 0.6s ease-out 0.3s;	
+}
+.my:hover .mybox .img_my .sveta {
+    left: 385px;
+    top: -4px;
+}
+
+.nadya {
+    right: -60%;
+    bottom: 30px;
+	-webkit-transition: all 3s ease-out 0s;
+    -moz-transition: all 3s ease-out 0s;
+    -o-transition: all 3s ease-out 0s;
+    transition: all 3s ease-out 0s;	
+}
+.my:hover .mybox .img_my .nadya {
+    bottom: 35px;
+    right: 190px;
+}
+
+.sergey {
+    right: -60%;
+    top: 0px;
+	-webkit-transition: all 3s ease-out 0s;
+    -moz-transition: all 3s ease-out 0s;
+    -o-transition: all 3s ease-out 0s;
+    transition: all 3s ease-out 0s;	
+}
+.my:hover .mybox .img_my .sergey {
+    right: 59px;
+    top: -4px;
+}
+
+
+.my_left {
+    float: left;
+	width: 52%;
+}
+.my_right {
+    background: url("../images/narezka/mazok.jpg") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    bottom: 0;
+    padding-top: 290px;
+    position: absolute;
+    right: 0;
+    width: 44%;
+}
+.my_left h2,.my_right h3 {
+    color: #3b6cea;
+	text-align: justify;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.my_left h2 {
+	font-size: 46px;
+	margin-bottom: 37px;
+	padding-top: 35px;
+}
+.my_right h3 {
+	font-size: 33px;
+	margin-bottom: 27px;
+}
+.my p {
+	font-size: 27px;
+	line-height: 30px;
+	color: #000000;
+	padding-bottom: 30px;
+	
+}
+
+/* end block my  ---------------------------------------------------------------------- */
+
+/* block kava  ---------------------------------------------------------------------- */
+.kava {
+    background: url("../images/narezka/bg_kofe_niz.jpg") repeat-x scroll 0 bottom;
+	overflow: hidden;
+	width: 100%;
+}
+.kava_box {
+    background: url("../images/narezka/bg_kofe_2_ef1.jpg") no-repeat scroll center 0;
+	overflow: hidden;
+	position: relative;
+	height: 883px;
+}
+.bgpena {
+    left: 50%;
+    margin-left: -25px;
+    position: absolute;  
+    opacity: 1;
+	
+	-webkit-transition: all 3s ease-out 0s;
+    -moz-transition: all 3s ease-out 0s;
+    -o-transition: all 3s ease-out 0s;
+    transition: all 3s ease-out 0s;	
+}
+.kava:hover .kava_box .bgpena { 
+    opacity: 0;
+}
+.kava_kontent {
+    margin: 0 auto 0px;
+    position: relative;
+    width: 1126px;
+}
+.kava_kontent p {
+    color: #310101;
+	font-size: 30px;
+	padding-bottom: 37px;
+	line-height: 34px;
+}
+.kava_left {
+    float: left;
+	width: 25%;
+}
+.kava_smail {
+    position: absolute;
+    top: 87px;
+	
+	-webkit-transition: all 1s ease-out 0s;
+    -moz-transition: all 1s ease-out 0s;
+    -o-transition: all 1s ease-out 0s;
+    transition: all 1s ease-out 0s;
+}
+.kava_kontent:hover div.kava_left img.kava_smail {
+    -moz-transform: rotate(-25deg); /* Для Firefox */
+    -ms-transform: rotate(-25deg); /* Для IE */
+    -webkit-transform: rotate(-25deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(-25deg); /* Для Opera */
+    transform: rotate(-25deg);
+}
+.kava_right {
+    float: right;
+	width: 75%;
+	padding-top: 28px;
+	margin-bottom: 30px;
+}
+.kava_right h2 {
+    color: #310101;
+	font-size: 55px;
+	font-weight: bold;
+	line-height: 60px;
+	margin-bottom: 145px;
+	text-transform: uppercase;
+}
+.kava_box2 {
+    clear: both;
+    width: 100%;
+}
+.pena {
+    bottom: 261px;
+    position: absolute;
+    right: 130px;
+    width: 45px;
+	opacity: 1;
+	
+	-webkit-transition: all 3s ease-out 0s;
+    -moz-transition: all 3s ease-out 0s;
+    -o-transition: all 3s ease-out 0s;
+    transition: all 3s ease-out 0s;
+	
+	-moz-transform: rotate(-15deg); /* Для Firefox */
+    -ms-transform: rotate(-15deg); /* Для IE */
+    -webkit-transform: rotate(-15deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(-15deg); /* Для Opera */
+    transform: rotate(-15deg);
+}
+.kava_kontent:hover img.pena {
+    opacity: 0;
+}
+.zerna {
+    left: 40px;
+    position: relative;
+	margin-bottom: 40px;
+	
+	-webkit-transition: all 1s ease-out 0s;
+    -moz-transition: all 1s ease-out 0s;
+    -o-transition: all 1s ease-out 0s;
+    transition: all 1s ease-out 0s;
+	
+}
+.kava:hover .kava_box .kava_kontent .kava_box2 .zerna {
+    left: 100px;
+	/*bottom: 15px;*/
+	-moz-transform: rotate(120deg); /* Для Firefox */
+    -ms-transform: rotate(120deg); /* Для IE */
+    -webkit-transform: rotate(120deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(120deg); /* Для Opera */
+    transform: rotate(120deg);
+}
+
+.zerna1 {
+    left: 70px;
+    position: relative;
+	margin-bottom: 40px;
+	
+	-webkit-transition: all 1s ease-out 0s;
+    -moz-transition: all 1s ease-out 0s;
+    -o-transition: all 1s ease-out 0s;
+    transition: all 1s ease-out 0s;
+	
+}
+.kava:hover .kava_box .kava_kontent .kava_box2 .zerna1 {
+    left: 105px;
+	/*bottom: 15px;*/
+	-moz-transform: rotate(120deg); /* Для Firefox */
+    -ms-transform: rotate(120deg); /* Для IE */
+    -webkit-transform: rotate(120deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(120deg); /* Для Opera */
+    transform: rotate(120deg);
+}
+
+
+/* end block kava  ------------------------------------------------------------------- */
+
+/* block kontakts  ------------------------------------------------------------------- */
+.kontakts {
+    margin: 0 auto 50px;
+    position: relative;
+    width: 1126px;
+	padding-top: 100px;
+}
+.kontakts h3 {
+    font-size: 55px;
+    font-weight: bold;
+    line-height: 56px;
+    text-align: center;
+    text-transform: uppercase;
+	padding-bottom: 95px;
+}
+.img_kont {
+    left: -100px;
+    position: absolute;
+    top: 60px;
+    z-index: 1;
+}
+.kontaktform {
+    margin: 0 auto;
+    position: relative;
+    width: 680px;
+    z-index: 5;
+}
+.kontakts .form_tr {
+    overflow: hidden;
+    margin: 0 0 12px;
+    width: 100%;
+}
+.form_tr div {
+
+}
+.c3, .c3c {
+    float: left;
+	width: 32.2%;
+}
+.c3c {
+    margin: 0 1.5%;
+}
+.c3 input , .c3c input  {
+	width: 95%;
+	border: 1px solid #FD9F00;
+    padding: 10px 0 10px 5%;
+}
+.kontakts input {
+
+}
+.prikrdiv {
+    background: url("../images/narezka/list.png") no-repeat scroll 11px center;
+	border: 1px solid #FD9F00;
+    padding: 9px 0 8px;
+	width: 99.5% !important;
+}
+.prikrep {
+    float: right;
+}
+.form_tr label {
+    color: #7D7D7D;
+    font-size: 14px;
+    padding-left: 32px;
+}
+.form_tr label mark {
+    padding-left: 0;
+	color: #7D7D7D;
+}
+
+.kontaktform textarea {
+	width: 94.5%;
+	border: 1px solid #FD9F00;
+    padding: 10px 0 10px 5%;
+}
+
+.file_upload{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    font-size: 1em;              /* example */
+    height: 2em;                 /* example */
+    line-height: 2em             /* the same as height */
+}
+.file_upload .button, .file_upload > mark{
+    display: block;
+    cursor: pointer              /* example */
+}
+.file_upload .button{
+    float: right;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 8em;                  /* example */
+    height: 100%;
+    text-align: center           /* example */
+}
+.file_upload > mark{
+    background: transparent;     /* example */
+    padding-left: 1em            /* example */
+}
+.file_upload input[type=file]{
+    position: absolute;
+    top: 0;
+    opacity: 0
+}
+/* end block kontakts  ---------------------------------------------------------------- */
+
+/* Middle
+-----------------------------------------------------------------------------*/
+.content {
+	padding: 0 0 168px;
+}
+.img_kont_ie {
+    display: none;
+}
+.footer_ie {
+    display: none;
+}
+/* Footer
+-----------------------------------------------------------------------------*/
+.footer {
+    background: none repeat scroll 0 0 #FD9F00;
+    margin: -168px auto 60px;
+    position: relative;
+    width: 100%;
+}
+.footer-info {
+    background: none repeat scroll 0 0 #FF8603;
+    margin: 0 auto;
+    overflow: hidden; 
+    padding: 25px 33px 21px;	
+    position: relative;
+    width: 1060px;
+}
+.footer-info div {
+    float: left;
+}
+.footer_logo a {
+
+}
+.footer_phone {
+    font-size: 25px;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding-left: 60px;
+	line-height: 26px;
+	padding-top: 3px;
+}
+.footer_mail a {
+    color: #FFFFFF;
+    display: block;
+    font-size: 25px;
+    font-weight: bold;
+    padding-left: 75px;
+    padding-top: 18px;
+    text-decoration: none;
+}
+.footer_sotc {
+    float: right !important;
+    padding-top: 6px;
+    width: 323px;
+}
+.footer_sotc a, .sset_all {
+    background: url("../images/narezka/sotc_footer.png") no-repeat scroll 0 0;
+    display: block;
+    float: left;
+    height: 46px;
+    width: 46px;
+	opacity: 1;
+}
+.sset2 {
+    background-position: -46px 0 !important;
+}
+.sset3 {
+    background-position: -92px 0 !important;
+}
+.sset4 {
+    background-position: -138px 0 !important;
+}
+.sset5 {
+    background-position: -184px 0 !important;
+}
+.sset6 {
+    background-position: -230px 0 !important;
+}
+.sset_all {
+    background-position: -276px 0 !important;
+}
+.footer_sotc a:hover, .sset_all:hover {
+	opacity: 0.5;
+}
+
+
+.vwerh {
+    position: fixed;
+	bottom: 0;
+	right: 1%;
+	z-index: 999999;
+}
+
+
+/* ADAPTIV ######################################################################### */
+
+/* do 1900px */
+@media screen and (max-width: 1900px) {
+
+.header {
+    max-width: 1450px;
+	height: 170px;
+}
+.logo img {
+    left: 3%;
+	width: 220px;
+}
+.hederight {
+    width: 100%;
+	padding: 35px 0 0;
+}
+
+.sliders {
+    max-width: 1450px;
+    min-width: 900px;
+}
+.fader {
+    margin-bottom: 22px;
+}
+.slider_pril, .slider_razrabot, .slider_video, .slider_nastroy {
+    height: 307px;
+}
+.slider_site {
+    height: 635px;
+}
+a.prezent {
+    right: 161px;
+}
+.grafik {
+    right: 6px;
+    width: 220px;
+}
+.para {
+    width: 160px;
+}
+
+}
+
+/* do 1600px */
+@media screen and (max-width: 1600px) {
+
+.logo img {
+    left: 1%;
+}
+.hederight {
+    width: 100%;
+}
+
+a.prezent {
+    right: 161px;
+}
+.grafik {
+    right: 6px;
+    width: 220px;
+}
+.para {
+    width: 160px;
+}
+
+}
+ 
+/* do 1366px */ 
+@media screen and (max-width: 1366px) {
+
+.header {
+    height: 142px;
+	max-width: 1110px;
+}
+.logo img {
+    margin: -6px auto 0;
+    width: 183px;
+}
+.hederight {
+    padding: 28px 0 0;
+    width: 100%;
+}
+.menuheader ul li {
+    margin-left: 6px;
+}
+.menuheader ul li a {
+    font-size: 14px;
+    padding: 9px 14px;
+}
+.swyazverh {
+    padding-left: 6px;
+	padding-top: 16px;
+}
+.sotcheader a {
+    background-size: 200px auto !important;
+}
+.sotcheader a.vk {
+    width: 33px;
+}
+
+.sotcheader a.ok {
+    background: url("../images/narezka/sotc.jpg") no-repeat scroll -33px 0;
+    width: 33px;
+}
+.sotcheader a.f {
+    background: url("../images/narezka/sotc.jpg") no-repeat scroll -66px 0;
+    width: 33px;
+}
+.sotcheader a.tv {
+    background: url("../images/narezka/sotc.jpg") no-repeat scroll -99px 0;
+    width: 33px;
+}
+.sotcheader a.p {
+    background: url("../images/narezka/sotc.jpg") no-repeat scroll -132px 0;
+    width: 33px;
+}
+.sotcheader a.sk {
+    background: url("../images/narezka/sotc.jpg") no-repeat scroll -167px 0;
+    width: 34px;
+}
+.zakazheder {
+    margin-top: 12px;
+	margin-right: 0;
+}
+.zakaz1 table tbody tr td input {
+    margin: 0 10px 6px 0;
+    padding: 5px 8px;
+    width: 140px;
+}
+.zakaz1 table tbody tr td button {
+    background: url("../images/narezka/arr_zakazat.png") no-repeat scroll 119px center / 27px auto #C542E6;
+    font-size: 13px;
+    margin: 0 10px 6px 0;
+    padding: 5px 8px;
+    width: 158px;
+}
+.zakaz1 table tbody tr td button:hover {
+    background: url("../images/narezka/arr_zakazat.png") no-repeat scroll 119px center / 27px auto #AE1BD2;
+} 
+.sliders {
+    max-width: 1100px;
+	margin: 0 auto 25px;
+}
+.slider_pril, .slider_razrabot, .slider_video, .slider_nastroy {
+    height: 232px;
+	margin-bottom: 18px;
+} 
+.slider_site {
+    height: 482px;
+}
+
+.slider_pril .navslider2, .slider_razrabot .navslider2, .slider_video .navslider2, .slider_nastroy .navslider2, .slider_site .navslider2 {
+	background-size: 100%;
+}
+.navslider2 {
+    height: 163px;
+}
+.slider_site .fader_controls {
+    height: 289px;
+}
+
+/*.preimuchestva {
+    -webkit-transform: scale(0.7);
+    -o-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+	transform: scale(0.7);
+}*/
+
+.preimuchestva {
+    background-size: 1180px 644px;
+	height: 645px;
+}
+
+#parallax {
+    height: 505px;
+    top: 140px;
+}
+#parallax img {
+    height: auto;
+    width: 800px;
+}
+.preim_bg {
+    max-width: 1100px;
+    padding: 63px 0 0;
+	margin: -505px auto 0;
+}
+.preim_bg h2 {
+    font-size: 39px;
+    line-height: 44px;
+}
+
+.delaem {
+    font-size: 28px;
+    line-height: 34px;
+    padding: 20px 0 0;
+}
+.allsite {
+    height: 374px;
+	margin-top: 29px;
+}
+.allsite a {
+    font-size: 14px;
+	background-size: 98% auto !important;
+	background-position: center center;
+}
+a.moda {
+    height: 104px;
+    left: 70px;
+    top: 12px;
+    width: 344px;
+}
+a.prezent {
+    height: 105px;
+    padding: 0 0 0 198px;
+    right: 123px;
+    top: 2px;
+    width: 159px;
+}	
+a.kreativ {
+    height: 50px;
+    left: 335px;
+    padding: 206px 0 0;
+    top: 22px;
+    width: 264px;
+}
+a.kupony {
+    height: 80px;
+    left: 69px;
+    padding: 190px 0 0;
+    width: 254px;
+	bottom: 6px;
+}
+a.zdorov {
+    height: 150px;
+    padding: 0 0 0 46px;
+    right: 110px;
+    top: 110px;
+    width: 179px;
+}
+a.restoran {
+    height: 62px;
+    padding: 85px 0 0 200px;
+    right: 99px;
+    width: 271px;
+}
+a.restoran span {
+    padding-left: 170px;
+}
+
+
+.uslugy {
+    background: url("../images/narezka/line_duble.png") repeat-x scroll 0 56px #ffffff;
+    padding: 23px 0 28px;
+}
+
+.uslugy h2 {
+	background: url("../images/narezka/smail_yazyk.png") no-repeat scroll right 7px #ffffff;
+	background-size: 90px auto;
+    font-size: 40px;
+    height: 43px;
+    padding: 29px 0 0 34px;
+    width: 429px;
+}
+
+.uslugy_box div {
+    padding: 18px 0;
+	height: 225px;
+}
+.uslugy_box div .usl_div {
+    max-width: 1100px;
+	min-height: 224px;
+}
+.uslugy_ul {
+    padding: 0 0 0 277px;
+}
+.uslugy_box div div ul li  {
+    width: 648px;
+}
+.uslugy .uslugy_box div div ul li a, .uslugy4 div.cel span {
+    font-size: 24px;
+	padding-right: 10px;
+	border-right: 2px solid #000000;
+}
+
+.uslugy .uslugy_box div div ul li span.usl_info {
+    font-size: 14px;
+    padding-left: 8px;
+}
+
+.uslugy2 ul.uslugy_ul li {
+
+	padding-bottom: 9px;
+}
+.cel {
+    height: 36px !important;
+}
+
+.uslugy .uslugy_box div ul li a.usl_right {
+    font-size: 20px;
+    height: 56px;
+}
+.uslugy1, .uslugy2, .uslugy3 {
+    background-size: auto 224px;
+}
+.uslugy2 ul.uslugy_ul {
+    padding-top: 23px;	
+}
+.uslugy3 {
+
+}
+.uslugy_box_1 {
+    background: url("../images/narezka/block_3_site_bg.jpg") repeat-x scroll 0 18px #ffffff;
+	background-size: 1px 224px;
+}
+.uslugy_box_2 {
+    background: url("../images/narezka/block_3_mobil_bg.jpg") repeat-x scroll 0 18px #ffffff;
+	background-size: 1px 224px;
+}
+.uslugy_box_3 {
+    background: url("../images/narezka/block_3_video_bg.jpg") repeat-x scroll 0 18px #ffffff;
+	background-size: 1px 224px;
+}
+.uslugy_box_2 ul.uslugy2 li {
+    padding-bottom: 8px;
+}
+.uslugy .uslugy_box div ul li span.usl_info {
+    font-size: 14px;
+	line-height: 16px;
+	padding-left: 12px;
+	top: -1px;
+}
+.top1 {
+    top: -23px !important;
+}
+.top2 {
+    top: -7px !important;
+}
+.uslugy .uslugy_box div ul li a, .uslugy4 div.cel span {
+    border-right: 2px solid #000000;
+    font-size: 18px;
+    line-height: 22px;
+    padding-right: 15px;
+}
+.uslugy4 {
+    max-width: 544px;
+    min-width: 500px;
+	height: 38px !important;
+}
+.uslugy4 div.cel a.usl_info {
+    font-size: 18px;
+}
+.idea {
+    background-size: auto 614px;
+	height: 614px;
+	margin-bottom: -31px;
+}
+.idea_box {
+    background-position: center 0;
+    background-size: auto 645px;
+    height: 665px;
+    max-width: 1100px;
+	top: -31px;
+}
+
+.idea_content {
+    left: 129px;
+    padding: 65px 0 0;
+    position: relative;
+    width: 500px;
+} 
+.idea_content p {
+    font-size: 18px;
+    line-height: 26px;
+}
+.uppercase1 {
+    font-size: 22px;
+}
+
+.idea_block2 {
+    font-size: 18px;
+    line-height: 30px;
+    padding: 48px 0 47px 39px;
+}
+.knopka1 {
+    margin: 0 11px 0 7px;
+    padding: 2px 16px 4px 14px;
+}
+.komandos {
+    width: 100px;
+	top: 28px;
+}
+ .para {
+    bottom: 50px;
+    right: 10px;
+    width: 140px;
+}
+ 
+.grafik {
+    bottom: 190px;
+    right: -20px;
+    width: 190px;
+}
+.mybox {
+    padding-top: 40px;
+    width: 1100px;
+	margin: 0 auto 38px;
+}
+.img_my {
+    -webkit-transform: scale(0.75);
+    -o-transform: scale(0.75);
+    -moz-transform: scale(0.75);
+    transform: scale(0.75);
+	margin-bottom: 0;
+}
+.my_left h2 {
+    font-size: 40px;
+}
+.myinfo {
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 900px;
+}
+.my_left h2 {
+    font-size: 30px;
+	margin-bottom: 28px;
+    padding-top: 0;
+	line-height: 34px;
+}
+
+.my p {
+    font-size: 18px;
+    line-height: 24px;
+    padding-bottom: 20px;
+}
+.my_right {
+    background-position: right 0;
+    background-size: 350px auto;
+    padding-top: 224px;
+}
+.my_right h3 {
+    font-size: 24px;
+    margin-bottom: 22px;
+}
+.kava {
+    background-size: 100% 90px;
+}
+.kava_box {
+    background-size: 1300px auto;
+	height: 638px;
+}
+.bgpena {
+    width: 300px;
+}
+.kava_kontent {
+    width: 812px;
+}
+
+.kava_smail {
+    top: 62px;
+    width: 124px;
+}
+.kava_right {
+    margin-bottom: 20px;
+    padding-top: 14px;
+}
+.kava_right h2 {
+    font-size: 38px;
+    line-height: 44px;
+}
+
+.kava_kontent p {
+    font-size: 20px;
+    line-height: 24px;
+    padding-bottom: 18px;
+}
+.pena {
+    bottom: 177px;
+    right: 100px;
+    width: 30px;
+}
+.zerna, .zerna1, .zerna2 {
+    -webkit-transform: scale(0.7);
+    -o-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    transform: scale(0.7);
+}
+.kava:hover .kava_box .kava_kontent .kava_box2 .zerna, .kava:hover .kava_box .kava_kontent .kava_box2 .zerna1 {
+    -webkit-transform: scale(0.7) rotate(120deg);
+    -o-transform: scale(0.7) rotate(120deg);
+    -moz-transform: scale(0.7 rotate(120deg));
+    transform: scale(0.7) rotate(120deg);
+}
+.kontakts {
+    width: 1100px;
+	padding-top: 52px;
+}
+
+.img_kont {
+    left: 22px;
+    width: 280px;
+	top: 32px;
+}
+.kontakts h3 {
+    font-size: 36px;
+	padding-bottom: 45px;
+}
+.kontaktform {
+    width: 520px;
+}
+.c3 input, .c3c input {
+    padding: 7px 0 7px 5%;
+}
+.prikrdiv {
+    padding: 1px 0;
+}
+.footer-info {
+    width: 1034px;
+}
+.footer_phone {
+    font-size: 24px;
+}
+
+.footer_mail a {
+    font-size: 23px;
+}
+.vwerh {
+	right: 2%;
+	width: 80px; 
+}
+.vwerh img {
+    width: 100%;
+}
+
+
+}
+
+/* do 1024px */   
+@media screen and (max-width: 1024px) {
+.logo img {
+    margin: 0px auto 0;
+    width: 152px;
+	left: 0.3%;
+}
+.hederight {
+    width: 100%;
+}
+.zakaz1 table tbody tr td input {
+    width: 120px;
+}
+.zakaz1 table tbody tr td button {
+    background: none #c542e6;
+    width: 139px;
+}
+.zakaz1 table tbody tr td button:hover {
+    background: none #AE1BD2;
+} 
+
+.allsite {
+    height: 380px;
+}
+a.prezent {
+    right: 43px;
+}
+a.restoran {
+    right: 27px;
+}
+a.kupony {
+    left: 39px;
+}
+a.moda {
+    left: 35px;
+}
+a.kreativ {
+    left: 306px;
+}
+a.zdorov {
+    right: 51px;
+}
+.uslugy_ul {
+    padding: 0 0 0 236px;
+}
+.grafik {
+    right: 8px;
+    width: 120px;
+}
+.para {
+    right: 15px;
+    width: 100px;
+}
+.mybox {
+    width: 900px;
+}
+
+.kontakts {
+    width: 900px;
+}
+.kontakts h3 {
+    font-size: 32px;
+}
+
+.img_kont {
+    width: 220px;
+}
+.kontaktform {
+    width: 450px;
+}
+.footer-info {
+    width: 880px;
+}
+.footer_phone {
+    font-size: 22px;
+    padding-left: 30px;
+}
+.footer_mail a {
+    font-size: 20px;
+    padding-left: 42px;
+}
+.footer_sotc {
+    transform: scale(0.7);
+}
+
+}
+
+
+/* dlya Safari ---------------------------------------------------------------------- */
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+    /* Safari only override */
+   ::i-block-chrome {
+    } 
+}
+
+@media (max-width: 1366px) and (-webkit-min-device-pixel-ratio:0) { 
+    /* Safari only override */
+    ::i-block-chrome {
+    } 
+}
+
+
+
