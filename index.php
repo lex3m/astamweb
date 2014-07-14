@@ -9,8 +9,19 @@ if($_SERVER['SERVER_ADDR'] == '127.0.0.1'){
     // specify how many levels of call stack should be shown in each log message
     defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL',3);
 
-    $yii=dirname($webRoot).'/framework/yii.php';
+    $yii=dirname($webRoot).'/framework/YiiBase.php';
     require_once($yii);
+
+    class Yii extends YiiBase {
+        /**
+         * @static
+         * @return CWebApplication
+         */
+        public static function app()
+        {
+            return parent::app();
+        }
+    }
 
     $config=$webRoot.'/protected/config/local.php';
 } else if ($_SERVER['SERVER_ADDR'] == '10.10.11.200') { //иначе дев сервер
