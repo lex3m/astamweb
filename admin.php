@@ -23,7 +23,7 @@ if($_SERVER['SERVER_ADDR'] == '127.0.0.1' || $_SERVER['SERVER_ADDR'] == '192.168
         }
     }
 
-    $config=$webRoot.'/protected/config/local.php';
+    $config=$webRoot.'/protected/config/backend.php';
 } else if ($_SERVER['SERVER_ADDR'] == '10.10.11.200') { //иначе дев сервер
     define('YII_DEBUG', true);
     // specify how many levels of call stack should be shown in each log message
@@ -41,5 +41,5 @@ else {
     $config=$webRoot.'/protected/config/production.php';
 }
 
-Yii::createWebApplication($config)->runEnd('frontend');
+Yii::createWebApplication($config)->runEnd('backend');
 

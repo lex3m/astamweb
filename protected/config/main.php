@@ -37,7 +37,7 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
-            'class' => 'WebUser', // ваш класс
+            'class' => 'WebUser',
 		),
         'authManager' => array(
             'class' => 'PhpAuthManager',
@@ -84,6 +84,13 @@ return array(
 			),
 		),
 	),
+
+    //application behaviors
+    'behaviors'=>array(
+        'runEnd'=>array(
+            'class'=>'application.behaviors.WebApplicationEndBehavior',
+        ),
+    ),
 
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
