@@ -37,7 +37,7 @@ class BackEndController extends BaseController
     public function accessRules()
     {
         return array(
-            // даем доступ только админам
+            // даем доступ только админам и модераторам
             array(
                 'allow',
                 'roles'=>array(User::ROLE_ADMIN, User::ROLE_MODER),

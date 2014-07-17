@@ -19,6 +19,7 @@ class AdminController extends BackEndController
 	 */
 	public function actionError()
 	{
+        $this->layout = 'column1';
 		if($error=Yii::app()->errorHandler->error)
 		{
 			if(Yii::app()->request->isAjaxRequest)
