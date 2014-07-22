@@ -104,13 +104,14 @@
                 <div class="infoheder">
                     <menu class="menuheader">
                         <?php $this->widget('zii.widgets.CMenu',array(
-                            'items'=>array(
+                            'items'=>Menu::getMenuItems(0),
+                                /*array(
                                 array('label'=>'О нас', 'url'=>array('/site/index')),
                                 array('label'=>'Услуги', 'url'=>array('/site/page', 'view'=>'about')),
                                 array('label'=>'Заказать', 'url'=>array('/site/contact')),
                                 array('label'=>'Работы', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                                array('label'=>'Контакты ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-                            ),
+                                array('label'=>'Контакты ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)*/
+//                            ),
                         )); ?>
                     </menu>
 

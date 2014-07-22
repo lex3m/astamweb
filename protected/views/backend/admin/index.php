@@ -1,55 +1,7 @@
 <?php
 /* @var $this AdminController */
 ?>
-<style>
-    .bs-glyphicons {
-        margin-right: 0;
-        margin-left: 0;
-    }
-    .bs-glyphicons {
-        margin: 0 -10px 20px;
-        overflow: hidden;
-    }
-    .bs-glyphicons-list {
-        padding-left: 0;
-        list-style: none;
-    }
-    .bs-glyphicons li {
-        width: 12.5%;
-        font-size: 12px;
-    }
-    .bs-glyphicons li {
-        float: left;
-        width: 25%;
-        padding: 10px;
-        font-size: 10px;
-        line-height: 1.4;
-        text-align: center;
-        background-color: #f9f9f9;
-        border: 1px solid #fff;
-    }
-    .bs-glyphicons .glyphicon {
-        margin-top: 5px;
-        margin-bottom: 10px;
-        font-size: 24px;
-    }
-    .glyphicon {
-        position: relative;
-        top: 1px;
-        display: inline-block;
-        font-family: 'Glyphicons Halflings';
-        font-style: normal;
-        font-weight: 400;
-        line-height: 1;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
-    .bs-glyphicons .glyphicon-class {
-        display: block;
-        text-align: center;
-        word-wrap: break-word;
-    }
-</style>
+
 <div class="bs-glyphicons">
     <ul class="bs-glyphicons-list">
         <li class="span3">
@@ -68,7 +20,7 @@
             </a>
         </li>
         <li class="span3">
-            <a href="<?php echo Yii::app()->createUrl('categories/index')?>" class="thumbnail" rel="tooltip" data-title="Менеджер категорий">
+            <a href="<?php echo Yii::app()->createUrl('category/index')?>" class="thumbnail" rel="tooltip" data-title="Менеджер категорий">
                 <i class="icon-list"></i>
             </a>
         </li>

@@ -1,6 +1,6 @@
 <?php
 
-class UsersController extends BackEndController
+class CategoryController extends BackEndController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -29,11 +29,15 @@ class UsersController extends BackEndController
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
-                'roles' => array(User::ROLE_MODER, User::ROLE_ADMIN)
+				'users'=>array('*'),
 			),
-			array('allow', // allow authenticated user to perform 'create', 'update' and 'delete' actions
-				'actions'=>array('create','update', 'delete'),
-                'roles' => array(User::ROLE_ADMIN),
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('create','update'),
+				'users'=>array('@'),
+			),
+			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+				'actions'=>array('admin','delete'),
+				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -58,14 +62,14 @@ class UsersController extends BackEndController
 	 */
 	public function actionCreate()
 	{
-		$model=new User('create');
+		$model=new Category;
 
 		// Uncomment the following line if AJAX validation is needed
-		 $this->performAjaxValidation($model);
+		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['User']))
+		if(isset($_POST['Category']))
 		{
-			$model->attributes=$_POST['User'];
+			$model->attributes=$_POST['Category'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -84,15 +88,12 @@ class UsersController extends BackEndController
 	{
 		$model=$this->loadModel($id);
 
-        $model->unsetAttributes(array('password'));
-
-        $model->scenario = 'update';
 		// Uncomment the following line if AJAX validation is needed
-        $this->performAjaxValidation($model);
+		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['User']))
+		if(isset($_POST['Category']))
 		{
-			$model->attributes=$_POST['User'];
+			$model->attributes=$_POST['Category'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -109,10 +110,7 @@ class UsersController extends BackEndController
 	 */
 	public function actionDelete($id)
 	{
-        if (Yii::app()->user->id == $id)
-            throw new CHttpException(403, 'Недопустимое действие. Пользователь не может удалить сам себя.');
-        else
-		    $this->loadModel($id)->delete();
+		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
@@ -124,24 +122,37 @@ class UsersController extends BackEndController
 	 */
 	public function actionIndex()
 	{
-        $model = new User('search');
-        $model->unsetAttributes(); //clear any default values
-        if(isset($_GET['User']))
-            $model->attributes=$_GET['User'];
+		$dataProvider=new CActiveDataProvider('Category');
+		$this->render('index',array(
+			'dataProvider'=>$dataProvider,
+		));
+	}
 
-        $this->render('index', array('model' => $model));
+	/**
+	 * Manages all models.
+	 */
+	public function actionAdmin()
+	{
+		$model=new Category('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Category']))
+			$model->attributes=$_GET['Category'];
+
+		$this->render('admin',array(
+			'model'=>$model,
+		));
 	}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return User the loaded model
+	 * @return Category the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=User::model()->findByPk($id);
+		$model=Category::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -149,11 +160,11 @@ class UsersController extends BackEndController
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param User $model the model to be validated
+	 * @param Category $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='user-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='category-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

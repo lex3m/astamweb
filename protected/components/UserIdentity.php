@@ -14,7 +14,7 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-
+//        echo CPasswordHelper::hashPassword($this->password);exit;
         $user = User::model()->find('LOWER(username)=?', array(strtolower($this->username)));
 
 		if($user == NULL)
@@ -29,6 +29,7 @@ class UserIdentity extends CUserIdentity
             $authKey = $user->generateCookieKey();
             $this->setState('authKey', $authKey);
             $user->authKey = $authKey;
+            $user->scenario = 'authKey';
             $user->save();
             $this->errorCode=self::ERROR_NONE;
         }

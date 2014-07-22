@@ -9,6 +9,8 @@
  * @property string $password
  * @property string $email
  * @property string $profile
+ * @property string $authKey
+ * @property string $role
  *
  * The followings are the available model relations:
  * @property Post[] $posts
@@ -17,6 +19,8 @@ class User extends CActiveRecord
 {
     const ROLE_ADMIN = 'administrator';
     const ROLE_MODER = 'moderator';
+
+    private static $_roles = array(self::ROLE_ADMIN, self::ROLE_MODER);
 
 	/**
 	 * @return string the associated database table name
@@ -34,12 +38,18 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, email, role', 'required'),
-			array('username, password, email, role', 'length', 'max'=>128),
+			array('username, password, email, role', 'required', 'on'=>'create'),
+            array('username, email', 'unique', 'on'=>'create'),
+            array('email', 'email', 'on'=>'create'),
+			array('username, password, email, authKey, role', 'length', 'max'=>128, 'on'=>'create'),
 			array('profile', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, username, password, email, profile', 'safe', 'on'=>'search'),
+			array('id, username, password, email, profile, authKey, role', 'safe', 'on'=>'search'),
+            array('username, email, role', 'required', 'on'=>'update'),
+            array('username, email', 'unique', 'on'=>'update'),
+            array('email', 'email', 'on'=>'update'),
+            array('authKey', 'required', 'on'=>'authKey')
 		);
 	}
 
@@ -62,10 +72,12 @@ class User extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'username' => 'Username',
-			'password' => 'Password',
+			'username' => 'Логин',
+			'password' => 'Пароль',
 			'email' => 'Email',
-			'profile' => 'Profile',
+			'profile' => 'Профиль',
+			'authKey' => 'Ключ авторизации',
+			'role' => 'Роль',
 		);
 	}
 
@@ -92,27 +104,48 @@ class User extends CActiveRecord
 		$criteria->compare('password',$this->password,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('profile',$this->profile,true);
+		$criteria->compare('authKey',$this->authKey,true);
+		$criteria->compare('role',$this->role,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
 
+    /**
+     * Compare password with hash
+     * @param $password
+     * @return bool
+     */
     public function validatePassword($password)
     {
         return CPasswordHelper::verifyPassword($password,$this->password);
     }
 
+    /**
+     * Hashes a user password
+     * @param $password
+     * @return string
+     */
     public function hashPassword($password)
     {
         return CPasswordHelper::hashPassword($password);
     }
 
+    /**
+     * Generates random value for cookie key
+     * @return string
+     */
     public function generateCookieKey()
     {
         return crypt(self::randString(), self::generateSalt());
     }
 
+    /**
+     * Generates a random string
+     * @param int $length
+     * @return string
+     */
     public function randString($length = 10)
     {
         $chars = array_merge(range(0,9), range('a','z'), range('A','Z'));
@@ -128,6 +161,28 @@ class User extends CActiveRecord
     {
         return uniqid('', true);
     }
+
+    /**
+     * Set user password before save new record
+     * @return bool
+     */
+    public function beforeSave()
+    {
+        if ($this->scenario == 'create' || $this->scenario == 'update')
+            $this->password = self::hashPassword($this->password);
+        return parent::beforeSave();
+    }
+
+    public function getRoles()
+    {
+        if (isset(self::$_roles)){
+            $roles = array();
+            foreach(self::$_roles as $k => $v)
+                $roles[$v] = $v;
+            return $roles;
+        }
+    }
+
 
 	/**
 	 * Returns the static model of the specified AR class.

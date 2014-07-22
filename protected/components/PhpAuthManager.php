@@ -10,7 +10,6 @@ class PhpAuthManager extends CPhpAuthManager
         }
 
         parent::init();
-
         // Для гостей у нас и так роль по умолчанию guest.
         if(!Yii::app()->user->isGuest){
             // Связываем роль, заданную в БД с идентификатором пользователя,

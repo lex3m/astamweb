@@ -13,10 +13,10 @@
                     array('label'=>'Менеджер пользователей', 'icon'=>'user', 'url'=>array('/users/index')),
                     array('label'=>'Менеджер меню', 'icon'=>'list-alt', 'url'=>array('/menu/index'),
                         'items'=>array(
-                            array('label'=>'Добавить пункт', 'url'=>array('menu/add')),
-                            array('label'=>'Дерево меню', 'url'=>array('menu/view')),
+                            array('label'=>'Добавить пункт', 'url'=>array('menu/create')),
+                            array('label'=>'Дерево меню', 'url'=>array('menu/index')),
                         )),
-                    array('label'=>'Менеджер категорий', 'icon'=>'list', 'url'=>array('categories/index')),
+                    array('label'=>'Менеджер категорий', 'icon'=>'list', 'url'=>array('category/index')),
                     array('label'=>'Основные разделы'),
                     array('label'=>'Заявки', 'icon'=>'envelope', 'url'=>array('requests/index')),
                     array('label'=>'Услуги', 'icon'=>'pencil', 'url'=>array('services/index')),
