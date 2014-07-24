@@ -40,7 +40,7 @@
             </a>
         </li>
         <li class="span3">
-            <a href="<?php echo Yii::app()->createUrl('media/index')?>" class="thumbnail" rel="tooltip" data-title="Мели менеджер">
+            <a href="<?php echo Yii::app()->createUrl('media/index')?>" class="thumbnail" rel="tooltip" data-title="Медиа менеджер">
                 <i class="icon-picture"></i>
             </a>
         </li>

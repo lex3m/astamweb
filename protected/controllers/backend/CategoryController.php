@@ -118,30 +118,20 @@ class CategoryController extends BackEndController
 	}
 
 	/**
-	 * Lists all models.
+	 * Lists and manages all models.
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Category');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+        $model=new Category('search');
+        $model->unsetAttributes();  // clear any default values
+        if(isset($_GET['Category']))
+            $model->attributes=$_GET['Category'];
+
+        $this->render('index',array(
+            'model'=>$model,
+        ));
 	}
 
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new Category('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Category']))
-			$model->attributes=$_GET['Category'];
-
-		$this->render('admin',array(
-			'model'=>$model,
-		));
-	}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

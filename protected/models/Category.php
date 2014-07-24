@@ -14,6 +14,8 @@
  */
 class Category extends CActiveRecord
 {
+    public $active;
+    public $indent = 0;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -36,7 +38,7 @@ class Category extends CActiveRecord
 			array('parent_cat_id', 'length', 'max'=>11),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, description, parent_cat_id', 'safe', 'on'=>'search'),
+			array('id, name, description, parent_cat_id, active', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -48,6 +50,10 @@ class Category extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+            'parent' => array(self::BELONGS_TO, 'Category', 'parent_cat_id'),
+            'children' => array(self::HAS_MANY, 'Category', 'parent_cat_id',
+                'order'=>'children.id ASC'
+            ),
 			'posts' => array(self::HAS_MANY, 'Post', 'category_id'),
 		);
 	}
@@ -59,9 +65,9 @@ class Category extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
-			'description' => 'Description',
-			'parent_cat_id' => 'Parent Cat',
+			'name' => 'Название',
+			'description' => 'Описание',
+			'parent_cat_id' => 'Родительская категория',
 		);
 	}
 
@@ -87,12 +93,59 @@ class Category extends CActiveRecord
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('parent_cat_id',$this->parent_cat_id,true);
+        $criteria->compare('active',$this->active,true);
 
-		return new CActiveDataProvider($this, array(
+		return new CatTreeActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+            'childRelation'=>'children',
 		));
 	}
 
+    /**
+     * @param $level
+     * @return string
+     */
+    private static function _makeNbsp($level)
+    {
+        $str = '';
+        for ($i = 0; $i < $level; $i++)
+        {
+            $str .= ' - ';
+        }
+
+        return $str;
+    }
+
+    private static $_items = array();
+
+    /**
+     * @param $parentID
+     * @param $lvl
+     */
+    public static function makeTree($parentID, $lvl = 0)
+    {
+
+        $menus = self::model()->findAll(
+            array(
+                'condition'=>'parent_cat_id=:parentID',
+                'params'=>array(':parentID'=>$parentID),
+            )
+        );
+
+        foreach ($menus as $menu) {
+            $id = $menu->id;
+            $lvl++;
+            self::$_items[$menu->id] = self::_makeNbsp($lvl) . $menu->name;
+            self::makeTree($id, $lvl);
+            $lvl--;
+        }
+
+        return self::$_items;
+    }
+
+    public function dataRow($data, $row) {
+        return  '|';
+    }
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
