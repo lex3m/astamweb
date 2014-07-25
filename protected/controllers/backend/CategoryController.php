@@ -15,7 +15,8 @@ class CategoryController extends BackEndController
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+			'postOnly + delete, processCategory', // we only allow deletion via POST request
+            'ajaxOnly + move'
 		);
 	}
 
@@ -27,17 +28,9 @@ class CategoryController extends BackEndController
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
+			array('allow', // allow admin and moder user
+				'actions'=>array('create','update', 'processCategory','index','view','admin','delete', 'move'),
+                'roles' => array(User::ROLE_MODER, User::ROLE_ADMIN),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -65,13 +58,17 @@ class CategoryController extends BackEndController
 		$model=new Category;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		 $this->performAjaxValidation($model);
 
 		if(isset($_POST['Category']))
 		{
 			$model->attributes=$_POST['Category'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+            $model->position = 1;
+			if($model->save()) {
+                $model->normalize();
+                $this->redirect(array('index'));
+            }
+
 		}
 
 		$this->render('create',array(
@@ -88,14 +85,15 @@ class CategoryController extends BackEndController
 	{
 		$model=$this->loadModel($id);
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+        $this->performAjaxValidation($model);
 
 		if(isset($_POST['Category']))
 		{
 			$model->attributes=$_POST['Category'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()) {
+                $model->normalize();
+                $this->redirect(array('index'));
+            }
 		}
 
 		$this->render('update',array(
@@ -132,6 +130,62 @@ class CategoryController extends BackEndController
         ));
 	}
 
+    /**
+     * Process category actions update, delete
+     */
+    public function actionProcessCategory()
+    {
+       if (isset($_POST['Category']) && !empty($_POST['itemsSelected'])) {
+            $type = Yii::app()->request->getPost('Category');
+            $itemsSelected = Yii::app()->request->getPost('itemsSelected');
+            foreach($itemsSelected as $k => $v) {
+                $model=$this->loadModel($v);
+                switch($type['workWithItemsSelected']) {
+                    case 'activate': $active = 1; $model->updateBranch($active);break;
+                    case 'deactivate': $active = 0; $model->updateBranch($active); break;
+                    case 'delete': $model->deleteBranch(); break;
+                }
+            }
+
+       }
+        // if AJAX request (triggered by process category via admin grid view), we should not redirect the browser
+        if(!isset($_GET['ajax']))
+            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+    }
+
+    /**
+     * Move category in direction
+     */
+    public function actionMove()
+    {
+        if (isset($_GET['ajax'])) {
+            $id = (int)Yii::app()->request->getParam('id');
+            $direction = Yii::app()->request->getParam('direction');
+
+            $category = $this->loadModel($id);
+
+            switch($direction){
+                case 'up':
+                    $prev = $category->prevRecord();
+                    $prev->position = $prev->position+1;
+                    $prev->save();
+                    $category->position=$category->position-1;
+                    break;
+                case 'down':
+                    $next = $category->nextRecord();
+                    $next->position = $next->position-1;
+                    $next->save();
+                    $category->position=$category->position+1;
+                    break;
+                default:
+                    throw new CHttpException(400, 'Команда не найдена');
+            }
+            if(!$category->update())
+                throw new CHttpException(400,'Ошибка в запросе');
+
+            $category->normalize();
+        }
+    }
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

@@ -1,52 +1,85 @@
-<div id="confirmDiv"></div>
-<div class='gridview-control-line'>
-    <?php
-    echo CHtml::beginForm($this->createUrl($url), 'post', array('id'=>'itemsSelected-form'));
-    ?>
-    <img alt="" src="<?php echo Yii::app()->request->theme->baseUrl; ?>/images/arrow_ltr.png"/>
-    <?php
-    echo Yii::t('common', 'With selected').': ';
-    echo CHtml::DropDownList('workWithItemsSelected', $model->WorkItemsSelected, $options).' ';
+<?php $this->beginWidget('bootstrap.widgets.TbModal', array('id'=>'myModal')); ?>
 
-    Yii::app()->clientScript->registerScript('confirm-mass-action', "
-			function processMassAction(){
-				$('#itemsSelected-form input[name=\"itemsSelected[]\"]').remove();
-				$('#".$id." input[name=\"itemsSelected[]\"]:checked').each(function(){
-					$('#itemsSelected-form').append('<input type=\"hidden\" name=\"itemsSelected[]\" value=\"' + $(this).val() + '\" />');
-				});
-				$.ajax({
-					type: 'post',
-					url: '".$this->createUrl($url)."',
-					data: $('#itemsSelected-form').serialize(),
-					success: function (html) {
-						$.fn.yiiGridView.update('".$id."');
-					},
-				});
-			}
-		", CClientScript::POS_END);
-
-    echo CHtml::button(
-        Yii::t('common', 'Do'),
-        array(
-            'class' => 'btn btn-primary',
-            'onclick' => "
-					if($('#workWithItemsSelected').val() != 'delete'){
-						processMassAction();
-					} else {
-						$(\"#confirmDiv\").confirmModal({
-							heading: '".tc('Request for confirmation')."',
-							body: '".tc('Are you sure?')."',
-							confirmButton: '".tc('Yes')."',
-							closeButton: '".tc('Cancel')."',
-							callback: function () {
-								processMassAction();
-							}
-						});
-					}
-
-					return false;
-				",
-        )
-    );
-    echo CHtml::endForm(); ?>
+<div class="modal-header">
+    <a class="close" data-dismiss="modal">&times;</a>
+    <h4>Подтверждение удаления</h4>
 </div>
+
+<div class="modal-body">
+    <p>Вы действительно хотите удалить эти элементы?</p>
+</div>
+
+<div class="modal-footer">
+    <?php $this->widget('bootstrap.widgets.TbButton', array(
+        'type'=>'primary',
+        'label'=>'Сохранить изменения',
+        'url'=>'#',
+        'htmlOptions'=>array('onclick'=>'processMassAction()'),
+    )); ?>
+    <?php $this->widget('bootstrap.widgets.TbButton', array(
+        'label'=>'Отмена',
+        'htmlOptions'=>array('data-dismiss'=>'modal'),
+    )); ?>
+</div>
+
+<?php $this->endWidget(); ?>
+
+<div class="form">
+
+    <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+        'action' => $this->createUrl($url),
+        'id'=>'itemsSelected-form',
+        'type'=>'inline',
+        'enableAjaxValidation'=>false,
+        'clientOptions'=>array(
+            'validateOnSubmit'=>true,
+        ),
+    )); ?>
+
+    <?php echo CHtml::image(Yii::app()->theme->baseUrl.'/images/arrow_ltr.png', 'arrow', array('style'=> 'margin-bottom:10px;')) ?>
+    <?php echo $form->dropDownListRow($model, 'workWithItemsSelected', $options); ?>
+
+    <?php
+        $this->widget('bootstrap.widgets.TbButton', array(
+            'buttonType'=>'button',
+            'type'=>'primary',
+            'label'=> 'Применить',
+            'htmlOptions'=>array(
+                'onclick' => "
+                            if($('#Category_workWithItemsSelected').val() != 'delete'){
+                                processMassAction();
+                            } else {
+                                $('#myModal').modal('show')
+                            }
+                            return false;
+                            ",
+            ),
+        ));
+    ?>
+
+    <?php $this->endWidget(); ?>
+
+</div><!-- form -->
+
+<?php
+    Yii::app()->clientScript->registerScript('confirm-mass-action', "
+                function processMassAction(){
+                    $('#itemsSelected-form input[name=\"itemsSelected[]\"]').remove();
+                    $('#".$id." input[name=\"itemsSelected[]\"]:checked').each(function(){
+                        $('#itemsSelected-form').append('<input type=\"hidden\" name=\"itemsSelected[]\" value=\"' + $(this).val() + '\" />');
+                    });
+                    $.ajax({
+                        type: 'post',
+                        url: '".$this->createUrl($url)."',
+                        data: $('#itemsSelected-form').serialize(),
+                        success: function (html) {
+                            $('#myModal').modal('hide');
+                            $.fn.yiiGridView.update('".$id."');
+                        },
+                    });
+                }
+
+            ", CClientScript::POS_END);
+?>
+
+

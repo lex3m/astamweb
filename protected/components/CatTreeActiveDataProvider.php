@@ -50,6 +50,13 @@ class CatTreeActiveDataProvider extends CActiveDataProvider
         return $items;
     }
 
+    /**
+     * Recursive building category tree
+     * @param $items
+     * @param int $indent
+     * @param int $foolproof
+     * @return array
+     */
     protected function buildRecursive($items, $indent=0, $foolproof=20)
     {
         $data=array();

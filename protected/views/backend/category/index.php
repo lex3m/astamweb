@@ -30,7 +30,7 @@ $this->widget('bootstrap.widgets.TbButton', array(
                 'class'=>'center',
             ),
         ),
-//        array('name'=>'id', 'header'=>'ID', 'sortable'=>false, 'filter'=>false),
+        array('name'=>'id', 'header'=>'ID', 'sortable'=>false, 'filter'=>false),
         array(
             'name' => 'active',
             'header' => 'Статус',
@@ -57,10 +57,9 @@ $this->widget('bootstrap.widgets.TbButton', array(
                     'imageUrl' => $url = Yii::app()->assetManager->publish(
                         Yii::getPathOfAlias('zii.widgets.assets.gridview').'/up.gif'
                     ),
-                    'url'=>'Yii::app()->createUrl("/apartments/backend/main/move", array("id"=>$data->id, "direction" => "down", "catid" => "0"))',
+                    'url'=>'Yii::app()->createUrl("category/move", array("id"=>$data->id, "direction" => "up"))',
                     'options' => array('class'=>'infopages_arrow_image_up'),
-
-//                    'visible' => '$data->sorter < "'.$maxSorter.'"',
+                    'visible' => '$data->position > 1',
                     'click' => "js: function() { ajaxMoveRequest($(this).attr('href'), 'category-form'); return false;}",
                 ),
                 'down' => array(
@@ -68,9 +67,9 @@ $this->widget('bootstrap.widgets.TbButton', array(
                     'imageUrl' => $url = Yii::app()->assetManager->publish(
                         Yii::getPathOfAlias('zii.widgets.assets.gridview').'/down.gif'
                     ),
-                    'url'=>'Yii::app()->createUrl("/apartments/backend/main/move", array("id"=>$data->id, "direction" => "up", "catid" => "0"))',
+                    'url'=>'Yii::app()->createUrl("category/move", array("id"=>$data->id, "direction" => "down"))',
                     'options' => array('class'=>'infopages_arrow_image_down'),
-//                    'visible' => '$data->sorter > 1',
+                    'visible' => '$data->position < Category::getMaxPosition($data->parent_cat_id)',
                     'click' => "js: function() { ajaxMoveRequest($(this).attr('href'), 'category-form'); return false;}",
                 ),
             ),
@@ -78,55 +77,30 @@ $this->widget('bootstrap.widgets.TbButton', array(
         ),
     )));
 ?>
-<!--<div id="confirmDiv"></div>
-<div class='gridview-control-line'>
-    <?php
-/*    echo CHtml::beginForm($this->createUrl($url), 'post', array('id'=>'itemsSelected-form'));
-    */?>
-    <img alt="" src="<?php /*echo Yii::app()->request->baseUrl; */?>/images/arrow_ltr.png"/>
-    <?php
-/*    echo Yii::t('common', 'With selected').': ';
-    echo CHtml::DropDownList('workWithItemsSelected', $model->WorkItemsSelected, $options).' ';
+<?php
+$this->renderPartial('/admin/items-select', array(
+    'url' => 'category/processCategory',
+    'id' => 'category-form',
+    'model' => $model,
+    'options' => array(
+        'activate' => 'Активировать',
+        'deactivate' => 'Деактивировать',
+        'delete' => 'Удалить',
+    ),
+));
+?>
+<?php
+Yii::app()->clientScript->registerScript('move-category-action', "
+    function ajaxMoveRequest(url, tableId){
+        $.ajax({
+            url: url,
+            data: {ajax:1},
+            method: 'get',
+            success: function(){
+                $('#'+tableId).yiiGridView.update(tableId);
+            }
+        });
+    }
 
-    Yii::app()->clientScript->registerScript('confirm-mass-action', "
-			function processMassAction(){
-				$('#itemsSelected-form input[name=\"itemsSelected[]\"]').remove();
-				$('#".$id." input[name=\"itemsSelected[]\"]:checked').each(function(){
-					$('#itemsSelected-form').append('<input type=\"hidden\" name=\"itemsSelected[]\" value=\"' + $(this).val() + '\" />');
-				});
-				$.ajax({
-					type: 'post',
-					url: '".$this->createUrl($url)."',
-					data: $('#itemsSelected-form').serialize(),
-					success: function (html) {
-						$.fn.yiiGridView.update('".$id."');
-					},
-				});
-			}
-		", CClientScript::POS_END);
-
-    echo CHtml::button(
-        Yii::t('common', 'Do'),
-        array(
-            'class' => 'btn btn-primary',
-            'onclick' => "
-					if($('#workWithItemsSelected').val() != 'delete'){
-						processMassAction();
-					} else {
-						$(\"#confirmDiv\").confirmModal({
-							heading: '".tc('Request for confirmation')."',
-							body: '".tc('Are you sure?')."',
-							confirmButton: '".tc('Yes')."',
-							closeButton: '".tc('Cancel')."',
-							callback: function () {
-								processMassAction();
-							}
-						});
-					}
-
-					return false;
-				",
-        )
-    );
-    echo CHtml::endForm(); */?>
-</div>-->
+", CClientScript::POS_END);
+?>

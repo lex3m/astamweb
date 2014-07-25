@@ -6,41 +6,32 @@
 
 <div class="form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'category-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
-)); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+    <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+        'id'=>'category-form',
+        'type'=>'horizontal',
+        'enableAjaxValidation'=>true,
+        'clientOptions'=>array(
+            'validateOnSubmit'=>true,
+        ),
+    )); ?>
+    <p class="note">Поля <span class="required">*</span> обязательные.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+    <?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'name'); ?>
-	</div>
+    <?php echo $form->dropDownListRow($model,'parent_cat_id', $model->makeTree($model->id, 0),  array('prompt'=>'Выберите родительскую категорию:')); ?>
+    <?php echo $form->textFieldRow($model,'name',array('size'=>60,'maxlength'=>128)); ?>
+    <?php echo $form->textAreaRow($model,'description',array('size'=>20,'maxlength'=>255)); ?>
+    <?php echo $form->dropDownListRow($model,'active', array(0=>'Нет', 1=>'Да')); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'description'); ?>
-		<?php echo $form->textField($model,'description',array('size'=>60,'maxlength'=>256)); ?>
-		<?php echo $form->error($model,'description'); ?>
-	</div>
+    <?php
+    $this->widget('bootstrap.widgets.TbButton', array(
+        'buttonType'=>'submit',
+        'type'=>'primary',
+        'label'=> $model->isNewRecord ? 'Создать' : 'Сохранить',
+    ));
+    ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'parent_cat_id'); ?>
-		<?php echo $form->textField($model,'parent_cat_id',array('size'=>11,'maxlength'=>11)); ?>
-		<?php echo $form->error($model,'parent_cat_id'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
-
-<?php $this->endWidget(); ?>
+    <?php $this->endWidget(); ?>
 
 </div><!-- form -->
