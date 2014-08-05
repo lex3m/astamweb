@@ -11,6 +11,7 @@
     <link href="<?php echo Yii::app()->theme->baseUrl; ?>/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
 
     <link  rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/styles/style.css" >
+    <link  rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/styles/jquery.fancybox.css" >
 
     <!--[if lte IE 9]>
     <style type="text/css">
@@ -56,9 +57,10 @@
     <?php
         Yii::app()->clientscript
             ->registerCoreScript( 'jquery' )
-            ->registerScriptFile( Yii::app()->theme->baseUrl . '/js/jquery-1.2.6.min.js', CClientScript::POS_BEGIN )
+//            ->registerScriptFile( Yii::app()->theme->baseUrl . '/js/jquery-1.2.6.min.js', CClientScript::POS_BEGIN )
             ->registerScriptFile( Yii::app()->theme->baseUrl . '/js/jquery.jparallax.0.9.1.js', CClientScript::POS_BEGIN )
             ->registerScriptFile( Yii::app()->theme->baseUrl . '/js/jquery.placeholder.js', CClientScript::POS_BEGIN )
+            ->registerScriptFile( Yii::app()->theme->baseUrl . '/js/jquery.fancybox.js' , CClientScript::POS_BEGIN)
 
     ?>
 
@@ -78,7 +80,9 @@
                     <img alt="logo" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/logo.png" />
                 </a>
 
-                <div class="zakazheder">
+
+                <?php $this->widget('OrderWidget'); ?>
+                <!--<div class="zakazheder">
                     <form class="zakaz1">
                         <table>
                             <tr>
@@ -99,7 +103,7 @@
                             </tr>
                         </table>
                     </form>
-                </div>
+                </div>-->
 
                 <div class="infoheder">
                     <menu class="menuheader">
@@ -116,7 +120,7 @@
                     </menu>
 
                     <div class="swyazverh">
-                        <a target="_blank" href="mailto:info@topsu.ru" class="pochta">Напишите нам</a>
+                        <a href="#kontakts" class="pochta">Напишите нам</a>
                         <div class="sotcheader">
                             <a href="#" class="vk"><img alt="logo" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png"></a>
                             <a href="#" class="ok"><img alt="logo" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png"></a>

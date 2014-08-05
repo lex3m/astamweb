@@ -3,9 +3,6 @@
 class SiteController extends FrontEndController
 {
 	/**
-     *  Саш, у меня есть к тебе деликатная просьбочка, как к профи) Я пока не хочу давать огласке, у меня в августе будет свадьба. Ты сможешь нарисовать дизайн для пригласительных? Мне нравятся по оформлению http://www.nastyarai.ru/images/inv/219/1.jpg http://krsvadba.ru/uploads/posts/2013-07/1373977264_27-svadebnye-prriglasitelnye-foto.jpg http://krsvadba.ru/uploads/posts/2013-07/1373977328_11-svadebnye-prriglasitelnye-foto.jpg http://img15.slando.ua/images_slandocomua/72163753_4_644x461_priglasheniya-na-svadbu-ruchnaya-rabota-biznes-i-uslugi_rev005.jpg это на лицевую сторону и http://www.anna-photo.org.ua/images/stories/svadeb/priglas/photo04.jpg (можно без фоновых фоток, просто белую подкладку) http://www.lightpixel.ru/uploads/posts/2011-09/thumbs/1314899390_shablon-priglasheniya-na-svadbu.jpg http://odamochka.info/uploads/taginator/Jan-2013/priglasheniya-na-svadbu.jpg это на внутреннюю сторону, свадьба у нас предположительно будет в корралово-мятных тонах, так что если сможешь, то как нибудь в этой цветовой палитре оформи пожалуйста) размеры пригласительного примерно 14х10 см. Заранее спасибо, и что с меня причитается?))))
-    [17:05:05] Alexey: дата 29.08.2014 Имена Алексей и Алина (это для лицевой стороны, если что))
-
      * Declares class-based actions.
 	 */
 	public function actions()
@@ -75,5 +72,54 @@ class SiteController extends FrontEndController
 		}
 		$this->render('contact',array('model'=>$model));
 	}
+
+    /**
+     * Process order form
+     */
+    public function actionOrder()
+    {
+        $model=new OrderForm;
+
+        if(Yii::app()->request->isAjaxRequest && isset($_POST['OrderForm']))
+        {
+            $model->attributes=$_POST['OrderForm'];
+            if($model->validate())
+            {
+                /*$name='=?UTF-8?B?'.base64_encode($model->name).'?=';
+                $subject='=?UTF-8?B?'.base64_encode($model->subject).'?=';
+                $headers="From: $name <{$model->email}>\r\n".
+                    "Reply-To: {$model->email}\r\n".
+                    "MIME-Version: 1.0\r\n".
+                    "Content-Type: text/plain; charset=UTF-8";
+
+                mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);*/
+               /* $email = Yii::app()->email;
+                $email->to = Yii::app()->params['adminEmail'];
+                $email->subject = 'Заказ обратного звонка';*/
+//                $email->view = 'mailtpl';
+
+                $message = new YiiMailMessage;
+                $message->view = 'mailtpl';
+
+                //model is passed to the view
+                $model->type = 'Вам поступила заявка на обратный звонок';
+                $message->setBody(array('client'=>$model), 'text/html');
+
+
+                $message->addTo(Yii::app()->params['adminEmail']);
+                $message->from = 'no-reply@astamweb.ru';
+
+
+                Yii::app()->mail->send($message);
+                echo CJSON::encode(array(
+                    'status'=>'success'
+                ));
+                Yii::app()->end();
+            } else {
+                echo CActiveForm::validate($model);
+                Yii::app()->end();
+            }
+        }
+    }
 
 }

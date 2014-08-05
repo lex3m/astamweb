@@ -45,6 +45,18 @@ return CMap::mergeArray(
 
                 ),
             ),
+            'mail' => array(
+                'transportType' => 'smtp',
+                'transportOptions' => array(
+                    'host' => 'smtp.gmail.com',
+                    'username' => 'lexxsumy@gmail.com',
+                    'password' => 'lex240390',
+                    'port' => '465',
+                    'encryption'=>'tls',
+                ),
+                'logging' => true,
+                'dryRun' => false,
+            ),
         ),
     )
 );

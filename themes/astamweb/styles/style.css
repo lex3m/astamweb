@@ -183,7 +183,7 @@ input, label {
     padding: 10px 17px;
     width: 214px;
 }
-.zakaz1 table tbody tr td button {
+#zakaz1 {
     background: url("../images/narezka/arr_zakazat.png") no-repeat scroll 182px center #C542E6;
     border: 1px solid #C542E6;
     display: block;
@@ -196,8 +196,9 @@ input, label {
     font-weight: bold;
     padding: 8px 14px;
     text-transform: uppercase;
+    cursor: pointer;
 }
-.zakaz1 table tbody tr td button:hover {
+#zakaz1:hover {
     background: url("../images/narezka/arr_zakazat.png") no-repeat scroll 182px center #AE1BD2;
 } 
 
@@ -2050,6 +2051,28 @@ a.zdorov {
 
 }
 
+.errorMessage {
+    color: red;
+    font-size: 13px;
+}
+
+.loading {
+
+    cursor: wait;
+    background-color: #eee;
+    background-image: url('../images/ajax-loader.gif');
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: .3;
+    z-index: 100;
+
+
+    /*background-color: #eee;
+    background-image: url('/images/ajax-loader.gif');
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 1;*/
+}
 
 /* dlya Safari ---------------------------------------------------------------------- */
 @media screen and (-webkit-min-device-pixel-ratio:0) { 

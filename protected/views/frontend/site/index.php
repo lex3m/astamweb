@@ -374,7 +374,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
     </div>
 </article><!-- end kava -->
 
-<article class="kontakts">
+<article class="kontakts" id="kontakts">
     <h3 class="kont_h3">Связаться с нами</h3>
 
     <img alt="Контакты" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/bg_kontakts.jpg" class="img_kont_ie" />
