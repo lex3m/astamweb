@@ -37,7 +37,7 @@ if($_SERVER['SERVER_ADDR'] == '127.0.0.1' || $_SERVER['SERVER_ADDR'] == '192.168
 // Иначе выключаем режим отладки и подключаем рабочую конфигурацию
 else {
     define('YII_DEBUG', false);
-    require_once(dirname($webRoot).'/framework/yiilite.php');
+    require_once($webRoot.'/framework/yiilite.php');
     $config=$webRoot.'/protected/config/production.php';
 }
 
