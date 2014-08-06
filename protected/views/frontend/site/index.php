@@ -303,7 +303,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
                 <span class="uppercase1">Идея студии —</span> мы хотим создавать креативные решения, которые будут работать, если и не во благо всего человечества, то <span class="color1">в плюс нашим клиентам,</span> так это точно. Мы стремимся работать с удовольствием и в удовольствие, и у нас это получается.
             </p>
             <div class="idea_block2">
-                В разделе <a href="#" class="knopka1">о нас</a>можно почитать<br /> <span class="bold">о нашей команде.</span>
+                В разделе <a href="#about-us" class="knopka1">о нас</a>можно почитать<br /> <span class="bold">о нашей команде.</span>
                 <img alt="Команда" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/4elove4ky.png" class="komandos" />
             </div>
             <p>

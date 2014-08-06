@@ -122,7 +122,7 @@ class SiteController extends FrontEndController
 
                 $message->addTo(Yii::app()->params['adminEmail']);
                 $message->from = 'no-reply@astamweb.ru';
-
+                $message->subject = 'Заявка с формы обратной связи АстамВеб';
 
                 Yii::app()->mail->send($message);
 
