@@ -20,10 +20,10 @@ class AdminController extends BackEndController
     {
         return array(
             array('allow', // allow admin and moder user
-                'actions'=>array('index', 'logout'),
+                'actions'=>array('index', 'logout', 'error'),
                 'roles' => array(User::ROLE_MODER, User::ROLE_ADMIN),
             ),
-            array('allow', // allow admin and moder user
+            array('allow',
                 'actions'=>array('login', 'error'),
                 'users'=>array('?'),
             ),

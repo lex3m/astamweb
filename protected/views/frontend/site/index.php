@@ -13,7 +13,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
 <script type="text/javascript">
     $(function(){
         var wrapper = $( ".file_upload" ),
-            inp = wrapper.find( "input" ),
+            inp = wrapper.find( "input[type=file]" ),
             btn = wrapper.find( ".button" ),
             lbl = wrapper.find( "mark" );
 
@@ -49,7 +49,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
     });
 
 </script>
-<div class="sliders">
+<div class="sliders" id="works">
     <div class="slider_col1">
 
         <div class="fader slider_pril">
@@ -163,7 +163,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
 
 </div><!-- end sliders -->
 
-<section class="studio">
+<section class="studio" id="works">
 
 <article class="preimuchestva">
 
@@ -192,7 +192,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
     </div>
 </article><!-- end preimuchestva -->
 
-<article class="uslugy">
+<article class="uslugy" id="services">
     <h2 class="usl_h2">Наши услуги</h2>
     <div class="uslugy_box">
         <div class="uslugy_box_1">
@@ -296,7 +296,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
 
 </article><!-- end uslugy -->
 
-<article class="idea">
+<article class="idea" id="idea">
     <div class="idea_box">
         <div class="idea_content">
             <p>
@@ -315,7 +315,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
     </div>
 </article><!-- end idea -->
 
-<article class="my">
+<article class="my" id="about-us">
     <div class="mybox">
         <div class="img_my">
             <img alt="anton" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/anton.png" class="anton" />
@@ -374,11 +374,12 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
     </div>
 </article><!-- end kava -->
 
-<article class="kontakts" id="kontakts">
+<?php $this->widget('ContactWidget'); ?>
+<!--<article class="kontakts" id="kontakts">
     <h3 class="kont_h3">Связаться с нами</h3>
 
-    <img alt="Контакты" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/bg_kontakts.jpg" class="img_kont_ie" />
-    <img alt="Контакты" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/bg_kontakts.jpg" class="img_kont" />
+    <img alt="Контакты" src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/narezka/bg_kontakts.jpg" class="img_kont_ie" />
+    <img alt="Контакты" src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/narezka/bg_kontakts.jpg" class="img_kont" />
     <form name="kontakt1" action="" class="kontaktform">
         <div class="form_tr">
             <div class="c3">
@@ -392,9 +393,9 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
             </div>
         </div>
         <!--<div class="form_tr prikrdiv">
-            <label for="fileup">Прикрепите файл размером не более 10 мб</label> 
+            <label for="fileup">Прикрепите файл размером не более 10 мб</label>
             <input id="fileup" type="file" name="fileup" class="prikrep" />
-        </div>-->
+        </div>
         <div class="form_tr prikrdiv">
             <label class="file_upload">
                 <span class="button">Выбрать</span>

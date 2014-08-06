@@ -13,7 +13,7 @@
             <tr>
                 <td>
                     <?php echo $form->error($model,'name'); ?>
-                    <?php echo $form->textField($model,'name', array('placeholder'=>'Имя')); ?>
+                    <?php echo $form->textField($model,'name', array('placeholder'=>'Имя*')); ?>
 
                 </td>
                 <td>
@@ -23,7 +23,7 @@
                             'model' => $model,
                             'attribute' => 'phone',
                             'mask' => '(999)999-99-99',
-                            'htmlOptions' => array('placeholder' => 'Телефон'),
+                            'htmlOptions' => array('placeholder' => 'Телефон*' , 'class'=>'phone'),
                         ));
                     ?>
 
@@ -41,9 +41,15 @@
                         array(
                             'dataType'=>'json',
                             'type'=>'post',
-                            'beforeSend'=>'function(){ $(".wrapper").addClass("loading");  }',
+                            'beforeSend'=>'function(){
+                                $(".loading").width($(document).width());
+                                $(".loading").height($(document).height());
+                                var posY = 400;
+                                $(".loading").css("background-position-y", posY);
+                                $(".loading").show();
+                            }',
                             'success'=>'function(data) {
-                                $(".wrapper").removeClass("loading");
+                                $(".loading").hide();
                                 if(data.status=="success"){
                                     $.fancybox.open({
                                         href : "#inline"
@@ -59,6 +65,10 @@
                                     });
                                 }
                             }',
+                            'error'=>'function(xhr, status, error) {
+                                 $(".loading").hide();
+                                 alert(error);
+                            }'
                         ),
                         array('type'=>'button','name'=>'zakaz1')); ?>
                 </td>

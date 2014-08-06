@@ -14,8 +14,13 @@ class PhpAuthManager extends CPhpAuthManager
         if(!Yii::app()->user->isGuest){
             // Связываем роль, заданную в БД с идентификатором пользователя,
             // возвращаемым UserIdentity.getId().
-            if (Yii::app()->user->getRole() !== NULL)
+            if (Yii::app()->user->getRole() != '')
                 $this->assign(Yii::app()->user->role, Yii::app()->user->id);
+            else {
+                $user = User::model()->findByPk(Yii::app()->user->id);
+                if ($user)
+                    $this->assign($user->role, $user->id);
+            }
         }
     }
 }

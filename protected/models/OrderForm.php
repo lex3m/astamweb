@@ -8,7 +8,7 @@ class OrderForm extends CFormModel
 	public $name;
 	public $email;
     public $phone;
-    public $message;
+    public $msg;
     public $file;
     public $type;
 
@@ -19,7 +19,7 @@ class OrderForm extends CFormModel
 	{
 		return array(
 			// name, email, subject and body are required
-			array('name, phone', 'required'),
+			array('name, phone', 'required', 'message'=>'Пожалуйста, заполните "{attribute}"'),
 			// email has to be a valid email address
 			array('email', 'email', 'message'=>'Пожалуйста, введите правильный e-mail адрес.'),
             array('phone', 'match', 'pattern'=>'/^(\(\d{3}\)\s*)*\d{3}(-{0,1}|\s{0,1})\d{2}(-{0,1}|\s{0,1})\d{2}$/'),
@@ -41,7 +41,7 @@ class OrderForm extends CFormModel
             'name' => 'Имя',
             'phone' => 'Телефон',
             'email' => 'E-mail',
-            'message' => 'Сообщение',
+            'msg' => 'Сообщение',
             'file' => 'Документ',
         );
     }

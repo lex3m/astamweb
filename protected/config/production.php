@@ -15,10 +15,10 @@ return array(
 		// uncomment the following to use a MySQL database EDIT HERE!!!
 
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=testdrive',
+			'connectionString' => 'mysql:host=localhost;dbname=astamweb',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
+			'username' => 'astamweb_user',
+			'password' => 'vSVwlbP4',
 			'charset' => 'utf8',
 		),
 	),

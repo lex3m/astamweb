@@ -6,4 +6,4 @@
 <br>
 E-mail: <?php echo $client->email; ?>
 <br>
-Сообщение: <?php echo $client->message; ?>
+Сообщение: <?php echo $client->msg; ?>

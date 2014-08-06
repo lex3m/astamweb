@@ -66,7 +66,7 @@ class SiteController extends FrontEndController
 					"Content-Type: text/plain; charset=UTF-8";
 
 				mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
+				Yii::app()->user->setFlash('contact','Спасибо за Вашу заявку. Наши менеджеры свяжутся с Вами ближайшее время.');
 				$this->refresh();
 			}
 		}
@@ -82,7 +82,14 @@ class SiteController extends FrontEndController
 
         if(Yii::app()->request->isAjaxRequest && isset($_POST['OrderForm']))
         {
+//            print_r($_POST); print_r($_FILES); exit;
             $model->attributes=$_POST['OrderForm'];
+            if (!empty($_POST['OrderForm']['msg']))
+                $model->msg = $_POST['OrderForm']['msg'];
+
+            if ($document=CUploadedFile::getInstance($model,'file')) {
+                $model->file = $document;
+            }
             if($model->validate())
             {
                 /*$name='=?UTF-8?B?'.base64_encode($model->name).'?=';
@@ -98,19 +105,27 @@ class SiteController extends FrontEndController
                 $email->subject = 'Заказ обратного звонка';*/
 //                $email->view = 'mailtpl';
 
+
                 $message = new YiiMailMessage;
                 $message->view = 'mailtpl';
 
                 //model is passed to the view
-                $model->type = 'Вам поступила заявка на обратный звонок';
+                $model->type = 'Вам поступила заявка c формы обратной связи';
                 $message->setBody(array('client'=>$model), 'text/html');
+                if ($model->file) {
+                    $path = Yii::getPathOfAlias('webroot.uploads').DIRECTORY_SEPARATOR.$model->file;
+                    $model->file->saveAs($path);
+                    $swiftAttachment = Swift_Attachment::fromPath($path);
+                    $message->attach($swiftAttachment);
 
+                }
 
                 $message->addTo(Yii::app()->params['adminEmail']);
                 $message->from = 'no-reply@astamweb.ru';
 
 
                 Yii::app()->mail->send($message);
+
                 echo CJSON::encode(array(
                     'status'=>'success'
                 ));

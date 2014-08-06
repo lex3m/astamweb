@@ -12,6 +12,8 @@
 
     <link  rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/styles/style.css" >
     <link  rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/styles/jquery.fancybox.css" >
+    <link  rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/styles/tooltipster.css" >
+    <link  rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/styles/tooltipster-shadow.css" >
 
     <!--[if lte IE 9]>
     <style type="text/css">
@@ -61,6 +63,8 @@
             ->registerScriptFile( Yii::app()->theme->baseUrl . '/js/jquery.jparallax.0.9.1.js', CClientScript::POS_BEGIN )
             ->registerScriptFile( Yii::app()->theme->baseUrl . '/js/jquery.placeholder.js', CClientScript::POS_BEGIN )
             ->registerScriptFile( Yii::app()->theme->baseUrl . '/js/jquery.fancybox.js' , CClientScript::POS_BEGIN)
+            ->registerScriptFile( Yii::app()->theme->baseUrl . '/js/jquery.tooltipster.min.js' , CClientScript::POS_BEGIN)
+            ->registerScriptFile( Yii::app()->theme->baseUrl . '/js/jquery.smooth-scroll.min.js' , CClientScript::POS_BEGIN)
 
     ?>
 
@@ -69,6 +73,7 @@
 
 <body>
 <a name="werh"></a>
+<div class="loading"></div>
 <div class="wrapper">
 
     <header class="header">
@@ -152,7 +157,7 @@
 <footer class="footer">
     <div class="footer-info">
         <div class="footer_logo">
-            <a href="/"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/logo_footer.png" alt="logo"></a>
+            <a href="<?php echo Yii::app()->baseUrl;?>"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/logo_footer.png" alt="logo"></a>
         </div>
         <div class="footer_phone">
             +38 099 007 95 47<br />
@@ -168,7 +173,7 @@
             <a class="sset4" target="_blank" href="#"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="Twitter" /></a>
             <a class="sset5" target="_blank" href="#"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="Pinterest" /></a>
             <a class="sset6" target="_blank" href="#"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="Skype" /></a>
-            <a class="sset_all" href="#"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="Другие соцсети" /></a>
+            <a class="sset_all" href="#werh"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="Другие соцсети" /></a>
         </div>
     </div>
     <div class="footer_ie">
@@ -176,6 +181,26 @@
 </footer><!-- .footer -->
 <a href="#werh" class="vwerh"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/wverh.png" alt="Вверх" /></a>
 
+<?php
+$scroll = <<<scr
+  $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+  });
+scr;
+
+Yii::app()->getClientScript()->registerScript('scr', $scroll,  CClientScript::POS_READY);
+?>
 
 </body>
 </html>
