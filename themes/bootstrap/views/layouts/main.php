@@ -17,13 +17,13 @@
 <body>
 
 <?php $this->widget('bootstrap.widgets.TbNavbar',array(
-    'brandUrl'=> array('admin/index'),
+    'brandUrl'=> Yii::app()->homeUrl,
     'collapse'=>true, // requires bootstrap-responsive.css
     'items'=>array(
         array(
             'class'=>'bootstrap.widgets.TbMenu',
             'items'=>array(
-                array('label'=>'Сайт', 'url'=>Yii::app()->baseUrl, 'visible'=>!Yii::app()->user->isGuest),
+                array('label'=>'Сайт', 'url'=>Yii::app()->createAbsoluteUrl('/')),
                 array('label'=>'Выход ('.Yii::app()->user->name.')', 'url'=>array('/admin/logout'), 'visible'=>!Yii::app()->user->isGuest)
             ),
         ),
