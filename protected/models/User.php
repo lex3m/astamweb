@@ -49,6 +49,7 @@ class User extends CActiveRecord
             array('username, email, role', 'required', 'on'=>'update'),
             array('username, email', 'unique', 'on'=>'update'),
             array('email', 'email', 'on'=>'update'),
+            array('username, password, email, authKey, role', 'length', 'max'=>128, 'on'=>'update'),
             array('authKey', 'required', 'on'=>'authKey')
 		);
 	}
@@ -169,7 +170,8 @@ class User extends CActiveRecord
     public function beforeSave()
     {
         if ($this->scenario == 'create' || $this->scenario == 'update')
-            $this->password = self::hashPassword($this->password);
+            if ($this->password != '')
+                $this->password = self::hashPassword($this->password);
         return parent::beforeSave();
     }
 

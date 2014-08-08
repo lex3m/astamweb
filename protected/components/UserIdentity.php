@@ -14,10 +14,9 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-//        echo CPasswordHelper::hashPassword($this->password);exit;
         $user = User::model()->find('LOWER(username)=?', array(strtolower($this->username)));
 
-		if($user == NULL)
+        if($user == NULL)
             $this->errorCode=self::ERROR_USERNAME_INVALID;
         else if(!$user->validatePassword($this->password))
             $this->errorCode=self::ERROR_PASSWORD_INVALID;

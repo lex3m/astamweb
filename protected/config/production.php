@@ -8,6 +8,8 @@
 return CMap::mergeArray(
     require(dirname(__FILE__).'/main.php'),
     array(
+        'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
+        'name'=>'AstamWEB',
 
         // application components
         'components'=>array(

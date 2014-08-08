@@ -32,14 +32,13 @@ if($_SERVER['SERVER_ADDR'] == '127.0.0.1' || $_SERVER['SERVER_ADDR'] == '192.168
     $yii=$webRoot.'/framework/yii.php';
     require_once($yii);
 
-    $config=$webRoot.'/protected/config/dev.php';
+    $config=$webRoot.'/protected/config/backend.php';
 }
 // Иначе выключаем режим отладки и подключаем рабочую конфигурацию
 else {
     define('YII_DEBUG', false);
     require_once($webRoot.'/framework/yiilite.php');
-    $config=$webRoot.'/protected/config/production.php';
+    $config=$webRoot.'/protected/config/backend.php';
 }
 
 Yii::createWebApplication($config)->runEnd('backend');
-

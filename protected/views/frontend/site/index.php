@@ -203,27 +203,27 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
                             <a href="#"><span>разработка</span> сайтов </a>
                             <span class="usl_info"> с нуля под ключ  разной сложности </span>
                         </div>
-                        <a href="#" class="usl_right">заказать</a>
+                        <a href="#kontakts" class="usl_right">заказать</a>
                     </li>
                     <li>
                         <div class="cel">
                             <a href="#"><span>продвижение</span> сайтов </a>
                             <span class="usl_info"> в сети. SEO</span>
                         </div>
-                        <a href="#" class="usl_right">Расчитать</a>
+                        <a href="#kontakts" class="usl_right">Расчитать</a>
                     </li>
                     <li>
                         <div class="cel">
                             <a href="#" class="bn"><span>настройка</span> рекламных компаний </a>
                         </div>
-                        <a href="#" class="usl_right">заказать</a>
+                        <a href="#kontakts" class="usl_right">заказать</a>
                     </li>
                     <li>
                         <div class="cel">
                             <a href="#"><span>поддержка</span> сайтов </a>
                             <span class="usl_info">созданных нами продуктов</span>
                         </div>
-                        <a href="#" class="usl_right">В комплекте</a>
+                        <a class="usl_right">В комплекте</a>
                     </li>
                 </ul>
             </div>
@@ -237,14 +237,14 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
                             <a href="#"><span>создание</span> мобильных<br />приложений</a>
                             <span class="usl_info top1"> на базе Андроид и iOS </span>
                         </div>
-                        <a href="#" class="usl_right">заказать</a>
+                        <a href="#kontakts" class="usl_right">заказать</a>
                     </li>
                     <li>
                         <div class="cel">
                             <a href="#"><span>продвижение</span>  мобильных <br />приложений </a>
                             <span class="usl_info top2"> в различных<br />специализированных<br />магазинах</span>
                         </div>
-                        <a href="#" class="usl_right">заказать</a>
+                        <a href="#kontakts" class="usl_right">заказать</a>
                     </li>
                 </ul>
             </div>
@@ -258,26 +258,26 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
                             <a href="#"><span>создание 3D</span></a>
                             <span class="usl_info"> анимированное видео  </span>
                         </div>
-                        <a href="#" class="usl_right">заказать</a>
+                        <a href="#kontakts" class="usl_right">заказать</a>
                     </li>
                     <li>
                         <div class="cel">
                             <a href="#"><span>съемки </span> роликов </a>
                             <span class="usl_info"> на камеру</span>
                         </div>
-                        <a href="#" class="usl_right">Расчитать</a>
+                        <a href="#kontakts" class="usl_right">Расчитать</a>
                     </li>
                     <li>
                         <div class="cel">
                             <a href="#" class="bn"><span>создание 3D </span> панорам </a>
                         </div>
-                        <a href="#" class="usl_right">заказать</a>
+                        <a href="#kontakts" class="usl_right">заказать</a>
                     </li>
                     <li>
                         <div class="cel">
                             <a href="#" class="bn"><span>создание </span> инфографики </a>
                         </div>
-                        <a href="#" class="usl_right">заказать</a>
+                        <a href="#kontakts" class="usl_right">заказать</a>
                     </li>
                 </ul>
             </div>
@@ -288,7 +288,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
                 <span>Мн. другое...</span>
             </div>
             <div class="cel cel_us5">
-                <a href="#" class="usl_info"> посмотреть список  </a>
+<!--                <a href="#" class="usl_info"> посмотреть список  </a>-->
             </div>
         </div>
 
