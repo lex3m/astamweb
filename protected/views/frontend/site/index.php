@@ -235,7 +235,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
                     <li>
                         <div class="cel">
                             <a href="#"><span>создание</span> мобильных<br />приложений</a>
-                            <span class="usl_info top1"> на базе Андроид и iOS </span>
+                            <span class="usl_info top1"> на базе Android и iOS </span>
                         </div>
                         <a href="#kontakts" class="usl_right">заказать</a>
                     </li>

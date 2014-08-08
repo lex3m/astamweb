@@ -64,7 +64,6 @@
             ->registerScriptFile( Yii::app()->theme->baseUrl . '/js/jquery.placeholder.js', CClientScript::POS_BEGIN )
             ->registerScriptFile( Yii::app()->theme->baseUrl . '/js/jquery.fancybox.js' , CClientScript::POS_BEGIN)
             ->registerScriptFile( Yii::app()->theme->baseUrl . '/js/jquery.tooltipster.min.js' , CClientScript::POS_BEGIN)
-            ->registerScriptFile( Yii::app()->theme->baseUrl . '/js/jquery.smooth-scroll.min.js' , CClientScript::POS_BEGIN)
 
     ?>
 
@@ -72,7 +71,7 @@
 </head>
 
 <body>
-<a name="werh"></a>
+<a name="werh" id="werh"></a>
 <div class="loading"></div>
 <div class="wrapper">
 
@@ -87,40 +86,11 @@
 
 
                 <?php $this->widget('OrderWidget'); ?>
-                <!--<div class="zakazheder">
-                    <form class="zakaz1">
-                        <table>
-                            <tr>
-                                <td>
-                                    <input id="name" name="name" type="text" placeholder="имя">
-                                </td>
-                                <td>
-                                    <input id="phone" name="phone" type="tel" placeholder="телефон">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input name='email' type='email' placeholder='e-mail' />
-                                </td>
-                                <td>
-                                    <button name='zakaz1'>Заказать</button>
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
-                </div>-->
 
                 <div class="infoheder">
                     <menu class="menuheader">
                         <?php $this->widget('zii.widgets.CMenu',array(
                             'items'=>Menu::getMenuItems(0),
-                                /*array(
-                                array('label'=>'О нас', 'url'=>array('/site/index')),
-                                array('label'=>'Услуги', 'url'=>array('/site/page', 'view'=>'about')),
-                                array('label'=>'Заказать', 'url'=>array('/site/contact')),
-                                array('label'=>'Работы', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                                array('label'=>'Контакты ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)*/
-//                            ),
                         )); ?>
                     </menu>
 

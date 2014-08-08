@@ -1,3 +1,22 @@
+
+<?php $tooltipster = <<<tooltip
+    $(function() {
+        $('.tooltip').tooltipster({
+             theme: 'tooltipster-shadow',
+             animation: 'fade',
+             delay: 200,
+        });
+
+        $('input').on('change', function (e) {
+            var id = this.id;
+            if (id == 'phone') id = 'OrderForm_phone';
+            $("#contact-form #"+id+"_em_").tooltipster('hide');
+        });
+    });
+tooltip;
+Yii::app()->getClientScript()->registerScript('tooltip', $tooltipster,  CClientScript::POS_READY);
+?>
+
 <article class="kontakts" id="kontakts">
 <h3 class="kont_h3">Связаться с нами</h3>
 
@@ -13,13 +32,12 @@
     'htmlOptions' => array('class'=>'kontaktform', 'enctype'=>'multipart/form-data'),
 )); ?>
     <div class="form_tr">
-<!--        <span class="tooltip" id="example" title="My tooltip content">Example</span>-->
         <div class="c3">
-            <?php echo $form->error($model,'name'); ?>
+            <?php echo $form->error($model,'name', array('class'=>'tooltip')); ?>
             <?php echo $form->textField($model,'name', array('placeholder'=>'Ваше имя*')); ?>
         </div>
         <div class="c3c">
-            <?php echo $form->error($model,'phone'); ?>
+            <?php echo $form->error($model,'phone', array('class'=>'tooltip')); ?>
             <?php
             $this->widget('CMaskedTextField', array(
                 'model' => $model,
@@ -30,17 +48,19 @@
             ?>
         </div>
         <div class="c3">
-            <?php echo $form->error($model,'email'); ?>
+            <?php echo $form->error($model,'email', array('class'=>'tooltip')); ?>
             <?php echo $form->textField($model,'email', array('placeholder'=>'E-mail')); ?>
         </div>
 
     </div>
+    <?php echo $form->error($model,'file', array('class'=>'tooltip')); ?>
     <div class="form_tr prikrdiv">
         <label class="file_upload">
             <span class="button">Выбрать</span>
             <mark>Прикрепите файл размером не более 10 мб</mark>
-            <?php echo $form->error($model,'file'); ?>
-            <?php echo $form->fileField($model,'file', array('accept' => 'application/msword,  application/pdf, application/excel,  application/rtf, text/plain')); ?>
+
+            <?php echo $form->fileField($model,'file'); ?>
+<!--            , array('accept' => 'application/msword,  application/pdf, application/excel,  application/rtf, text/plain') -->
         </label>
     </div>
     <div class="form_tr form_text">
@@ -114,6 +134,7 @@
                 success : function(data) {
                     $(".loading").hide();
                     if(data.status=="success"){
+                        $(".tooltip").tooltipster('hide');
                         var top = $(document).height()- 400
                         $.fancybox.open({
                             href : "#inline2"
@@ -125,8 +146,9 @@
                         }, 3000);
                     } else {
                         $.each(data, function(key, val) {
-                            $("#contact-form #"+key+"_em_").text(val);
+                            $("#contact-form #"+key+"_em_").tooltipster('content', ''+val);
                             $("#contact-form #"+key+"_em_").show();
+                            $("#contact-form #"+key+"_em_").tooltipster('show');
                         });
                     }
                 },
@@ -138,6 +160,7 @@
             e.preventDefault();
         } );
 </script>
+
 <?php
         $fancy = <<<fanc
             $('.fancybox').fancybox({
@@ -152,13 +175,6 @@
 				closeClick : true,
             });
             $("#phone").mask("(999)999-99-99");
-//            $('.tooltip').tooltipster();
-
-            // then immediately show the tooltip
-//            $('#example').tooltipster('show');
-
-
-
 fanc;
 
         Yii::app()->getClientScript()->registerScript('fancy', $fancy,  CClientScript::POS_READY);

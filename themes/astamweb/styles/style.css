@@ -40,6 +40,7 @@ input, label {
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
+    margin-top: 10px;
 }
 .knopka {
     cursor: pointer;
@@ -67,7 +68,7 @@ input, label {
 	margin: 0 auto;
 }
 .werh {
-    overflow: hidden;    
+    overflow: hidden;
 }
 
 .hederight {

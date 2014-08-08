@@ -1,3 +1,21 @@
+
+<?php $tooltipster = <<<tooltip
+    $(function() {
+        $('.tooltip').tooltipster({
+             theme: 'tooltipster-shadow',
+             animation: 'fade',
+             delay: 200,
+        });
+
+        $('input').on('change', function (e) {
+            var id = this.id;
+            $("#order-form #"+id+"_em_").tooltipster('hide');
+        });
+    });
+tooltip;
+Yii::app()->getClientScript()->registerScript('tooltip', $tooltipster,  CClientScript::POS_READY);
+?>
+
 <div class="zakazheder">
     <?php $form=$this->beginWidget('CActiveForm', array(
         'id'=>'order-form',
@@ -12,12 +30,12 @@
             <tbody>
             <tr>
                 <td>
-                    <?php echo $form->error($model,'name'); ?>
+                    <?php echo $form->error($model,'name', array('class'=>'tooltip')); ?>
                     <?php echo $form->textField($model,'name', array('placeholder'=>'Имя*')); ?>
 
                 </td>
                 <td>
-                    <?php echo $form->error($model,'phone'); ?>
+                    <?php echo $form->error($model,'phone', array('class'=>'tooltip')); ?>
                     <?php
                         $this->widget('CMaskedTextField', array(
                             'model' => $model,
@@ -60,8 +78,9 @@
                                     }, 3000);
                                 } else {
                                     $.each(data, function(key, val) {
-                                        $("#order-form #"+key+"_em_").text(val);
+                                        $("#order-form #"+key+"_em_").tooltipster("content", ""+val);
                                         $("#order-form #"+key+"_em_").show();
+                                        $("#order-form #"+key+"_em_").tooltipster("show");
                                     });
                                 }
                             }',
