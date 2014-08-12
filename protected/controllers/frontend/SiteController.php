@@ -82,7 +82,6 @@ class SiteController extends FrontEndController
 
         if(Yii::app()->request->isAjaxRequest && isset($_POST['OrderForm']))
         {
-//            print_r($_POST); print_r($_FILES); exit;
             $model->attributes=$_POST['OrderForm'];
             if (!empty($_POST['OrderForm']['msg']))
                 $model->msg = $_POST['OrderForm']['msg'];

@@ -25,9 +25,10 @@ class OrderForm extends CFormModel
             array('phone', 'match', 'pattern'=>'/^(\(\d{3}\)\s*)*\d{3}(-{0,1}|\s{0,1})\d{2}(-{0,1}|\s{0,1})\d{2}$/'),
             array('file', 'file',
                 'allowEmpty' => true,
+                'maxSize' => 1024 * 1024 * 5, // 5MB
+                'tooLarge' => 'Размер файла превышает 5MB. Пожалуйста, загрузите файл меньшего размера.',
                 'types'=> 'doc, docx, pdf, odt, xls, xlsx, csv, rtf, txt',
-                'maxSize' => 1024 * 1024 * 10, // 10MB
-                'tooLarge' => 'Размер файла превышает 10MB. Пожалуйста, загрузите файл меньшего размера.',
+
             ),
 		);
 	}

@@ -26,12 +26,31 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
 
         var file_api = ( window.File && window.FileReader && window.FileList && window.Blob ) ? true : false;
 
-        inp.change(function(){
+        inp.live('change', function(){
+
             var file_name;
-            if( file_api && inp[ 0 ].files[ 0 ] )
-                file_name = inp[ 0 ].files[ 0 ].name;
-            else
+            if (!file_api) {
+                alert("Error: Ваш браузер не поддерживает File API, пожалуйста, обновите Ваш браузер.");
+                return;
+            }
+            if( file_api && this.files[ 0 ] ) {
+                file_name = this.files[ 0 ].name;
+                if (this.files[0].size >= 5 * 1024 * 1024) {
+                    inp.replaceWith( inp.clone() );
+                    $("#contact-form #OrderForm_file_em_").tooltipster('content', 'Размер файла превышает 5 Мб, выберите другой файл.');
+                    $("#contact-form #OrderForm_file_em_").show();
+                    $("#contact-form #OrderForm_file_em_").tooltipster('show');
+
+                    setTimeout(function(){
+                        file_name = 'Прикрепите файл размером не более 5 мб';
+                        lbl.text( file_name );
+                    }, 3000);
+
+                }
+
+            } else {
                 file_name = inp.val().replace( "C:\\fakepath\\", '' );
+            }
 
             if( ! file_name.length )
                 return;
@@ -41,12 +60,13 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
                 btn.text( "Выбрать" );
             }else
                 btn.text( file_name );
-        }).change();
+        })
+//            .change();
 
     });
-    $( window ).resize(function(){
+  /*  $( window ).resize(function(){
         $( ".file_upload input" ).triggerHandler( "change" );
-    });
+    });*/
 
 </script>
 <div class="sliders" id="works">
@@ -375,43 +395,5 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
 </article><!-- end kava -->
 
 <?php $this->widget('ContactWidget'); ?>
-<!--<article class="kontakts" id="kontakts">
-    <h3 class="kont_h3">Связаться с нами</h3>
-
-    <img alt="Контакты" src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/narezka/bg_kontakts.jpg" class="img_kont_ie" />
-    <img alt="Контакты" src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/narezka/bg_kontakts.jpg" class="img_kont" />
-    <form name="kontakt1" action="" class="kontaktform">
-        <div class="form_tr">
-            <div class="c3">
-                <input id="name2" name="name2" type="text" placeholder="Ваше имя" />
-            </div>
-            <div class="c3c">
-                <input id="email2" name="email2" type="email" placeholder="e-mail" />
-            </div>
-            <div class="c3">
-                <input id="phone2" name="phone2" type="tel" placeholder="Телефон" />
-            </div>
-        </div>
-        <!--<div class="form_tr prikrdiv">
-            <label for="fileup">Прикрепите файл размером не более 10 мб</label>
-            <input id="fileup" type="file" name="fileup" class="prikrep" />
-        </div>
-        <div class="form_tr prikrdiv">
-            <label class="file_upload">
-                <span class="button">Выбрать</span>
-                <mark>Прикрепите файл размером не более 10 мб</mark>
-                <input type="file">
-            </label>
-        </div>
-        <div class="form_tr form_text">
-            <textarea id="textarea" name="textarea" class="textarea" cols="40" rows="6"></textarea>
-        </div>
-        <div class="form_tr">
-            <input id="" name="submit" type="submit" value="Отправить" class="knopka" />
-        </div>
-    </form>
-</article><!-- end kontakts -->
-
-
 
 </section><!-- end studio -->

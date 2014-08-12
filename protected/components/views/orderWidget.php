@@ -5,6 +5,7 @@
              theme: 'tooltipster-shadow',
              animation: 'fade',
              delay: 200,
+             timer : 3000,
         });
 
         $('input').on('change', function (e) {

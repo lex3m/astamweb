@@ -5,6 +5,7 @@
              theme: 'tooltipster-shadow',
              animation: 'fade',
              delay: 200,
+             timer : 3000,
         });
 
         $('input').on('change', function (e) {
@@ -57,7 +58,7 @@ Yii::app()->getClientScript()->registerScript('tooltip', $tooltipster,  CClientS
     <div class="form_tr prikrdiv">
         <label class="file_upload">
             <span class="button">Выбрать</span>
-            <mark>Прикрепите файл размером не более 10 мб</mark>
+            <mark>Прикрепите файл размером не более 5 мб</mark>
 
             <?php echo $form->fileField($model,'file'); ?>
 <!--            , array('accept' => 'application/msword,  application/pdf, application/excel,  application/rtf, text/plain') -->
@@ -69,47 +70,6 @@ Yii::app()->getClientScript()->registerScript('tooltip', $tooltipster,  CClientS
     </div>
     <div class="form_tr">
         <input type="submit" name="submit" class="knopka">
-        <?php /*echo CHtml::ajaxSubmitButton('Отправить',
-            CHtml::normalizeUrl(array('site/order')),
-            array(
-                'dataType'=>'json',
-                'type'=>'post',
-                'processData' => false,
-                'contentType' => false,
-//                'data' => 'new FormData($("#contact-form")); ',
-                'beforeSend'=>'function(){
-                    $(".loading").width($(document).width());
-                    $(".loading").height($(document).height());
-                    var posY = $(document).height()- 400;
-                    $(".loading").css("background-position-y", posY);
-                    $(".loading").show();
-                }',
-                'success'=>'function(data) {
-                                $(".loading").hide();
-                                if(data.status=="success"){
-                                var top = $(document).height()- 400
-                                    $.fancybox.open({
-                                        href : "#inline2",
-                                    });
-                                    $(".fancybox-wrap").css("top", top + "!important")
-                                    $("#contact-form")[0].reset();
-                                    setTimeout(function(){
-//                                        $.fancybox.close();
-                                    }, 3000);
-                                } else {
-                                    $.each(data, function(key, val) {
-                                        $("#contact-form #"+key+"_em_").text(val);
-                                        $("#contact-form #"+key+"_em_").show();
-                                    });
-                                }
-                            }',
-                'error'=>'function(xhr, status, error) {
-                     $(".loading").hide();
-                     alert(error);
-                }'
-                ),
-                array('type'=>'button','name'=>'submit', 'class'=>'knopka'));*/
-            ?>
         </div>
     <?php $this->endWidget(); ?>
 </article><!-- end kontakts -->
@@ -140,7 +100,7 @@ Yii::app()->getClientScript()->registerScript('tooltip', $tooltipster,  CClientS
                             href : "#inline2"
                         });
                         $("#contact-form")[0].reset();
-                        $(".file_upload mark").html('Прикрепите файл размером не более 10 мб');
+                        $(".file_upload mark").html('Прикрепите файл размером не более 5 мб');
                         setTimeout(function(){
                             $.fancybox.close();
                         }, 3000);
