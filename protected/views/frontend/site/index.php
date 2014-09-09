@@ -1,5 +1,5 @@
 <?php
-/* @var $this SiteController */
+/* @var $this SiteController test */
 
 ?>
 <?php
@@ -35,7 +35,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
             }
             if( file_api && this.files[ 0 ] ) {
                 file_name = this.files[ 0 ].name;
-                if (this.files[0].size >= 5 * 1024 * 1024) {
+                /*if (this.files[0].size >= 5 * 1024 * 1024) {
                     inp.replaceWith( inp.clone() );
                     $("#contact-form #OrderForm_file_em_").tooltipster('content', 'Размер файла превышает 5 Мб, выберите другой файл.');
                     $("#contact-form #OrderForm_file_em_").show();
@@ -46,7 +46,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
                         lbl.text( file_name );
                     }, 3000);
 
-                }
+                }*/
 
             } else {
                 file_name = inp.val().replace( "C:\\fakepath\\", '' );
@@ -64,6 +64,8 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
 //            .change();
 
     });
+
+
   /*  $( window ).resize(function(){
         $( ".file_upload input" ).triggerHandler( "change" );
     });*/

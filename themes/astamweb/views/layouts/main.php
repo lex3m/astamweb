@@ -5,8 +5,9 @@
     <meta charset="utf-8" />
     <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
+    <meta name="keywords" content="создание сайтов, раскрутка, продвижение, аудит, разработка приложений, IOS , ANDROID" />
+    <meta name="description" content="Мы поможем сделать ваш бизнес более эффективным. Оптимизируем все интернет каналы. Проанализируем ваших конкурентов. Разработаем оптимальную стратегию развития" />
+    <title>Astamweb.ru | создание и продвижение сайтов и приложений для IOS и ANDROID. Аудиты сайтов. Консультации</title> 
 
     <link href="<?php echo Yii::app()->theme->baseUrl; ?>/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
 
@@ -130,11 +131,10 @@
             <a href="<?php echo Yii::app()->baseUrl;?>"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/logo_footer.png" alt="logo"></a>
         </div>
         <div class="footer_phone">
-            +38 099 007 95 47<br />
-            +38 098 015 11 26
+            8 966 116 72 40<br />
         </div>
         <div class="footer_mail">
-            <a href="mailto:info@topsu.ru" target="_blank">info@topsu.ru</a>
+            <a href="mailto:info@astamweb.ru" target="_blank">info@astamweb.ru</a>
         </div>
         <div class="footer_sotc">
             <a class="sset1" target="_blank" href="#"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="В контакте" /></a>
