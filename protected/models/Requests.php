@@ -40,7 +40,7 @@ class Requests extends CActiveRecord
             array('document', 'file',
                 'allowEmpty' => true,
                 'types'=> 'doc, docx, pdf, odt, xls, xlsx, csv, rtf, txt',
-                'maxSize' => 1024 * 1024 * 5, // 5MB
+                'maxSize' => 1024 * 1024 * 5, // 5MB!
                 'tooLarge' => 'Размер файла превышает 5MB. Пожалуйста, загрузите файл меньшего размера.',
             ),
 			// The following rule is used by search().
