@@ -46,7 +46,7 @@
             'label'=> 'Применить',
             'htmlOptions'=>array(
                 'onclick' => "
-                            if($('#Category_workWithItemsSelected').val() != 'delete'){
+                            if($('#itemsSelected-form select').val() != 'delete'){
                                 processMassAction();
                             } else {
                                 $('#myModal').modal('show')

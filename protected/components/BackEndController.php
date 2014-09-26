@@ -55,4 +55,58 @@ class BackEndController extends BaseController
             ),
         );
     }
+
+    public static function returnStatusHtml($data, $tableId, $onclick = 0){
+        $url = Yii::app()->controller->createUrl("activate", array("id" => $data->id, "action" => ($data->active==1?'deactivate':'activate'), "model"=> get_class($data) ));
+        $img = CHtml::image(
+            Yii::app()->request->baseUrl.'/images/'.($data->active?'':'in').'active.png',
+            $data->active ? 'Активно':'Неактивно',
+            array('title' => $data->active?'Деактивировать':'Активировать')
+        );
+        $options = array();
+        if($onclick){
+            $options = array(
+                'onclick' => 'ajaxSetStatus(this, "'.$tableId.'"); return false;',
+            );
+        }
+        return '<div align="center">'.CHtml::link($img,$url, $options).'</div>';
+    }
+
+    /**
+     * Set active / inactive category
+     * @throws CHttpException
+     */
+    public function activate($id, $action, $model)
+    {
+        if (isset($_GET['ajax'])) {
+            $id = (int)Yii::app()->request->getParam('id');
+            $action = Yii::app()->request->getParam('action');
+            $model = Yii::app()->request->getParam('model');
+            $category = $this->loadModels($id, $model);
+            switch($action) {
+                case 'activate': $category->active = 1; break;
+                case 'deactivate': $category->active = 0; break;
+            }
+            if(!$category->update())
+                throw new CHttpException(400,'Ошибка в запросе');
+            else
+                return true;
+
+        }
+    }
+
+    /**
+     * Returns the data model based on the primary key given in the GET variable.
+     * If the data model is not found, an HTTP exception will be raised.
+     * @param integer $id the ID of the model to be loaded
+     * @return the loaded model
+     * @throws CHttpException
+     */
+    public function loadModels($id, $model)
+    {
+        $model=$model::model()->findByPk($id);
+        if($model===null)
+            throw new CHttpException(404,'The requested page does not exist.');
+        return $model;
+    }
 }

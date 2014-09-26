@@ -17,11 +17,9 @@ class WebUser extends CWebUser
 
     protected function beforeLogin($id,$states,$fromCookie)
     {
-        parent::beforeLogin($id,$states,$fromCookie);
-
         if ($user = $this->getModel($id, array('select' => 'authKey'))) {
             if ($user->authKey == $states['authKey'])
-                return true;
+                return parent::beforeLogin($id,$states,$fromCookie);
         } else {
             return false;
         }

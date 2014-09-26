@@ -16,7 +16,7 @@ class CategoryController extends BackEndController
 		return array(
 			'accessControl', // perform access control for CRUD operations
 			'postOnly + delete, processCategory', // we only allow deletion via POST request
-            'ajaxOnly + move'
+            'ajaxOnly + move, activate'
 		);
 	}
 
@@ -29,7 +29,7 @@ class CategoryController extends BackEndController
 	{
 		return array(
 			array('allow', // allow admin and moder user
-				'actions'=>array('create','update', 'processCategory','index','view','admin','delete', 'move'),
+				'actions'=>array('create','update', 'processCategory','index','view','admin','delete', 'move', 'activate'),
                 'roles' => array(User::ROLE_MODER, User::ROLE_ADMIN),
 			),
 			array('deny',  // deny all users
@@ -184,6 +184,21 @@ class CategoryController extends BackEndController
                 throw new CHttpException(400,'Ошибка в запросе');
 
             $category->normalize();
+        }
+    }
+
+    /**
+     * Set active / inactive category
+     * @throws CHttpException
+     */
+    public function actionActivate()
+    {
+        if (isset($_GET['ajax'])) {
+            $id = (int)Yii::app()->request->getParam('id');
+            $action = Yii::app()->request->getParam('action');
+            $model = Yii::app()->request->getParam('model');
+            if($this->activate($id, $action, $model))
+                return true;
         }
     }
 

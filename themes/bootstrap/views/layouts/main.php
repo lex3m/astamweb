@@ -48,6 +48,21 @@
 	</div><!-- footer -->
 
 </div><!-- page -->
+<?php
+Yii::app()->clientScript->registerScript('ajax-status', "
+    function ajaxSetStatus(elem, id){
+        $.ajax({
+            url: $(elem).attr('href'),
+            data: {ajax:1},
+            method: 'get',
+            success: function(){
+                $('#'+id).yiiGridView.update(id);
+            }
+        });
+    }
 
+
+", CClientScript::POS_END);
+?>
 </body>
 </html>

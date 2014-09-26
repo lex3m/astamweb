@@ -1,5 +1,5 @@
 <?php
-/* @var $this SiteController test */
+/* @var $this SiteController */
 
 ?>
 <?php
@@ -64,18 +64,17 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
 //            .change();
 
     });
-
-
   /*  $( window ).resize(function(){
         $( ".file_upload input" ).triggerHandler( "change" );
     });*/
 
 </script>
+<div class="slide_box">
 <div class="sliders" id="works">
     <div class="slider_col1">
 
         <div class="fader slider_pril">
-            <div class="slide" style="opacity: 1;"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/block1_leftt_1.jpg"  alt=""  /></a>
+            <div class="slide" style="opacity: 1;"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/block1_leftt_1.jpg"  height="372" alt=""  /></a>
             </div>
             <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_2.jpg"  alt=""  /></a>
             </div>
@@ -96,7 +95,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
 
 
         <div class="fader slider_razrabot">
-            <div class="slide" style="opacity: 1;"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/block1_leftt_2.jpg"  alt=""  /></a>
+            <div class="slide" style="opacity: 1;"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/block1_leftt_2.jpg" height="372" alt=""  /></a>
             </div>
             <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_2.jpg"  alt=""  /></a>
             </div>
@@ -142,7 +141,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
     <div class="slider_col3">
 
         <div class="fader slider_video">
-            <div class="slide" style="opacity: 1;"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/block1_right_1.jpg"  alt=""  /></a>
+            <div class="slide" style="opacity: 1;"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/block1_right_1.jpg" height="372" alt=""  /></a>
             </div>
             <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_2.jpg"  alt=""  /></a>
             </div>
@@ -162,7 +161,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
         </div><!-- end slider_video -->
 
         <div class="fader slider_nastroy">
-            <div class="slide" style="opacity: 1;"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/block1_right_2.jpg"  alt=""  /></a>
+            <div class="slide" style="opacity: 1;"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/block1_right_2.jpg" height="372" alt=""  /></a>
             </div>
             <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_2.jpg"  alt=""  /></a>
             </div>
@@ -184,6 +183,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
     </div><!-- end slider_col3 -->
 
 </div><!-- end sliders -->
+</div><!-- end slide_box -->
 
 <section class="studio" id="works">
 
@@ -310,7 +310,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
                 <span>Мн. другое...</span>
             </div>
             <div class="cel cel_us5">
-<!--                <a href="#" class="usl_info"> посмотреть список  </a>-->
+                <a href="<?php echo Yii::app()->baseUrl; ?>/services" class="usl_info"> посмотреть список  </a>
             </div>
         </div>
 

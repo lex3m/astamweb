@@ -98,12 +98,10 @@
                     <div class="swyazverh">
                         <a href="#kontakts" class="pochta">Напишите нам</a>
                         <div class="sotcheader">
-                            <a href="#" class="vk"><img alt="logo" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png"></a>
-                            <a href="#" class="ok"><img alt="logo" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png"></a>
-                            <a href="#" class="f"><img alt="logo" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png"></a>
-                            <a href="#" class="tv"><img alt="logo" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png"></a>
-                            <a href="#" class="p"><img alt="logo" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png"></a>
-                            <a href="#" class="sk"><img alt="logo" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png"></a>
+                            <a class="vk" href="https://vk.com/topsu_ru"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="logo"></a>
+                            <a class="ok" href="http://www.ok.ru/profile/573212817936/statuses"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="logo"></a>
+                            <a class="f" href="https://www.facebook.com/VershinaUspeha"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="logo"></a>
+                            <a class="tv" href="https://twitter.com/topsuak"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="logo"></a>
                         </div>
                     </div>
                 </div>
@@ -118,6 +116,8 @@
     <?php if(isset($this->breadcrumbs)):?>
         <?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
+            'separator'=>' / ',
+            'htmlOptions'=>array('class'=>'bread')
 		)); ?><!-- breadcrumbs -->
     <?php endif?>
     <main class="content">
@@ -137,13 +137,13 @@
             <a href="mailto:info@astamweb.ru" target="_blank">info@astamweb.ru</a>
         </div>
         <div class="footer_sotc">
-            <a class="sset1" target="_blank" href="#"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="В контакте" /></a>
-            <a class="sset2" target="_blank" href="#"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="Однокласники" /></a>
-            <a class="sset3" target="_blank" href="#"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="facebook" /></a>
-            <a class="sset4" target="_blank" href="#"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="Twitter" /></a>
-            <a class="sset5" target="_blank" href="#"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="Pinterest" /></a>
-            <a class="sset6" target="_blank" href="#"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="Skype" /></a>
-            <a class="sset_all" href="#werh"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="Другие соцсети" /></a>
+            <a class="sset1" target="_blank" href="https://vk.com/topsu_ru"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="В контакте" /></a>
+            <a class="sset2" target="_blank" href="http://www.ok.ru/profile/573212817936/statuses"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="Однокласники" /></a>
+            <a class="sset3" target="_blank" href="https://www.facebook.com/VershinaUspeha"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="facebook" /></a>
+            <a class="sset4" target="_blank" href="https://twitter.com/topsuak"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="Twitter" /></a>
+            <!--<a class="sset5" target="_blank" href="#"><img src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/narezka/prozrachnyi.png" alt="Pinterest" /></a>
+            <a class="sset6" target="_blank" href="#"><img src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/narezka/prozrachnyi.png" alt="Skype" /></a>
+            <a class="sset_all" href="#werh"><img src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/narezka/prozrachnyi.png" alt="Другие соцсети" /></a>-->
         </div>
     </div>
     <div class="footer_ie">

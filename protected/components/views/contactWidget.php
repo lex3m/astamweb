@@ -8,7 +8,8 @@
              timer : 3000,
         });
 
-        $('input').on('change', function (e) {
+        $('"#contact-form input').on('change', function (e) {
+
             var id = this.id;
             if (id == 'phone') id = 'OrderForm_phone';
             $("#contact-form #"+id+"_em_").tooltipster('hide');

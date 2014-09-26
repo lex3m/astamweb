@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1>Просмотр пользователя <?php echo $model->username; ?></h1>
+<h2>Просмотр пользователя <?php echo $model->username; ?></h2>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView', array(
     'data'=>$model,

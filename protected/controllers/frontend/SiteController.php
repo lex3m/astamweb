@@ -91,19 +91,12 @@ class SiteController extends FrontEndController
             }
             if($model->validate())
             {
-                /*$name='=?UTF-8?B?'.base64_encode($model->name).'?=';
-                $subject='=?UTF-8?B?'.base64_encode($model->subject).'?=';
-                $headers="From: $name <{$model->email}>\r\n".
-                    "Reply-To: {$model->email}\r\n".
-                    "MIME-Version: 1.0\r\n".
-                    "Content-Type: text/plain; charset=UTF-8";
-
-                mail(Yii::app()->params['adminEmail'],$subject,$model->body,$headers);*/
-               /* $email = Yii::app()->email;
-                $email->to = Yii::app()->params['adminEmail'];
-                $email->subject = 'Заказ обратного звонка';*/
-//                $email->view = 'mailtpl';
-
+                $request = new Requests();
+                $request->client_name = $model->name;
+                $request->client_phone = $model->phone;
+                $request->client_email = $model->email;
+                $request->document = $model->file;
+                $request->message = $model->msg;
 
                 $message = new YiiMailMessage;
                 $message->view = 'mailtpl';
@@ -123,11 +116,12 @@ class SiteController extends FrontEndController
                 $message->from = 'no-reply@astamweb.ru';
                 $message->subject = 'Заявка с формы обратной связи АстамВеб';
 
-                Yii::app()->mail->send($message);
-
-                echo CJSON::encode(array(
-                    'status'=>'success'
-                ));
+                if (Yii::app()->mail->send($message)) {
+                    $request->save();
+                    echo CJSON::encode(array(
+                        'status'=>'success'
+                    ));
+                }
                 Yii::app()->end();
             } else {
                 echo CActiveForm::validate($model);

@@ -4,9 +4,12 @@
     <div class="span3">
         <div id="sidebar">
             <?php
+            $badgeRequests = (Requests::getUnreadRequests() > 0) ? "&nbsp<span class=\"badge\">".Requests::getUnreadRequests()."</span>" : '';
+
             $this->beginWidget('zii.widgets.CPortlet');
             $this->widget('bootstrap.widgets.TbMenu', array(
                 'type'=>'list',
+                'encodeLabel' => false,
                 'items'=>array(
                     array('label'=>'Структурные разделы'),
                     array('label'=>'Главная', 'icon'=>'home', 'url'=>array('/admin/index')),
@@ -18,7 +21,7 @@
                         )),
                     array('label'=>'Менеджер категорий', 'icon'=>'list', 'url'=>array('category/index')),
                     array('label'=>'Основные разделы'),
-                    array('label'=>'Заявки', 'icon'=>'envelope', 'url'=>array('requests/index')),
+                    array('label'=> 'Заявки' . $badgeRequests, 'icon'=>'envelope', 'url'=>array('requests/index')),
                     array('label'=>'Услуги', 'icon'=>'pencil', 'url'=>array('services/index')),
                     array('label'=>'Работы', 'icon'=>'folder-open', 'url'=>array('works/index')),
                     array('label'=>'Медиа менеджер', 'icon'=>'picture', 'url'=>array('media/index')),

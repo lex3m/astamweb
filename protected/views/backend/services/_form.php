@@ -4,54 +4,56 @@
 /* @var $form CActiveForm */
 ?>
 
+
 <div class="form">
 
-<?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'services-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+	 'id'=>'services-form',
+	 'type'=>'horizontal',
+        'enableAjaxValidation'=>true,
+        'clientOptions'=>array(
+    'validateOnSubmit'=>true,
+),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+    <p class="note">Поля <span class="required">*</span> обязательные.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'title'); ?>
-		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>250)); ?>
-		<?php echo $form->error($model,'title'); ?>
-	</div>
+    <?php echo $form->dropDownListRow($model,'active', array( 1=>'Да',0=>'Нет')); ?>
+    <?php echo $form->dropDownListRow($model,'category_id', Category::makeTree(0, 0),  array('prompt'=>'Выберите категорию')); ?>
+    <?php echo $form->textFieldRow($model,'title',array('size'=>100,'maxlength'=>250, 'class'=>'span4')); ?>
+    <?php echo $form->labelEx($model,'announcement'); ?>
+    <?php $this->widget('application.extensions.ckeditor.ECKEditor', array(
+        'model'=>$model,
+        'attribute'=>'announcement',
+        'language'=>'ru',
+        'editorTemplate'=>'full',
+        'height'=>'200px',
+        'plugins' => array('wysiwygarea'),
+    )); ?>
+    <br/>
+    <?php echo $form->labelEx($model,'content'); ?>
+    <?php $this->widget('application.extensions.ckeditor.ECKEditor', array(
+        'model'=>$model,
+        'attribute'=>'content',
+        'language'=>'ru',
+        'editorTemplate'=>'full',
+        'height'=>'400px',
+        'plugins' => array('wysiwygarea'),
+    )); ?>
+    <br/>
+    <?php echo $form->textFieldRow($model,'link',array('size'=>60,'maxlength'=>100,'class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'content'); ?>
-		<?php echo $form->textArea($model,'content',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'content'); ?>
-	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
-		<?php echo $form->error($model,'status'); ?>
-	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'date'); ?>
-		<?php echo $form->textField($model,'date'); ?>
-		<?php echo $form->error($model,'date'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'announcement'); ?>
-		<?php echo $form->textArea($model,'announcement',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'announcement'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
+    <?php
+    $this->widget('bootstrap.widgets.TbButton', array(
+        'buttonType'=>'submit',
+        'type'=>'primary',
+        'label'=> $model->isNewRecord ? 'Создать' : 'Сохранить',
+    ));
+    ?>
 
 <?php $this->endWidget(); ?>
 

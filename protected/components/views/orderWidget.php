@@ -1,5 +1,5 @@
 
-<?php $tooltipster = <<<tooltip
+<?php $tooltipster2 = <<<tooltip
     $(function() {
         $('.tooltip').tooltipster({
              theme: 'tooltipster-shadow',
@@ -8,13 +8,13 @@
              timer : 3000,
         });
 
-        $('input').on('change', function (e) {
+        $('#order-form input').on('change', function (e) {
             var id = this.id;
             $("#order-form #"+id+"_em_").tooltipster('hide');
         });
     });
 tooltip;
-Yii::app()->getClientScript()->registerScript('tooltip', $tooltipster,  CClientScript::POS_READY);
+Yii::app()->getClientScript()->registerScript('tooltip', $tooltipster2,  CClientScript::POS_READY);
 ?>
 
 <div class="zakazheder">

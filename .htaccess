@@ -4,6 +4,10 @@ Options +FollowSymLinks
 IndexIgnore */*
 RewriteEngine on
 
+# Redirect from www
+RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
 # Make the backend accessible via url: http://site/admin.
 RewriteRule ^admin admin.php
 

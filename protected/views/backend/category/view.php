@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1>Просмотр категории <?php echo $model->name; ?></h1>
+<h2>Просмотр категории <?php echo $model->name; ?></h2>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView', array(
     'data'=>$model,

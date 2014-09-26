@@ -61,6 +61,7 @@ class Category extends CActiveRecord
                 'order'=>'children.position ASC'
             ),
             'posts' => array(self::HAS_MANY, 'Post', 'category_id'),
+            'services' => array(self::HAS_MANY, 'Services', 'category_id'),
         );
     }
 

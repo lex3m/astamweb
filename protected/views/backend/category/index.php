@@ -34,9 +34,11 @@ $this->widget('bootstrap.widgets.TbButton', array(
         array(
             'name' => 'active',
             'header' => 'Статус',
-            'value' => '($data->active == 1) ? "Активно" : "Неактивно"',
-            'sortable' => false,
+            'type' => 'raw',
+            'value' => 'Yii::app()->controller->returnStatusHtml($data, "category-form", 1)',
+            'htmlOptions' => array('class'=>'infopages_status_column'),
             'filter' => array(0=>'Неактивно', 1=>'Активно'),
+            'sortable' => false,
         ),
         array('name'=>'name',
             'header'=>'Название категории',
@@ -91,7 +93,7 @@ $this->renderPartial('/admin/items-select', array(
 ?>
 <?php
 Yii::app()->clientScript->registerScript('move-category-action', "
-    function ajaxMoveRequest(url, tableId){
+       function ajaxMoveRequest(url, tableId){
         $.ajax({
             url: url,
             data: {ajax:1},

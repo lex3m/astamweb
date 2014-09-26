@@ -1,136 +1,63 @@
 <?php
-/* @var $this CategoryController */
-/* @var $dataProvider CActiveDataProvider */
+/* @var $this ServicesController */
+/* @var $model Services */
 
-$this->pageTitle='Менеджер услуг';
+$this->breadcrumbs=array(
+	'Services'=>array('index'),
+	'Manage',
+);
+
+$this->menu=array(
+	array('label'=>'List Services', 'url'=>array('index')),
+	array('label'=>'Create Services', 'url'=>array('create')),
+);
+
+Yii::app()->clientScript->registerScript('search', "
+$('.search-button').click(function(){
+	$('.search-form').toggle();
+	return false;
+});
+$('.search-form form').submit(function(){
+	$('#services-grid').yiiGridView('update', {
+		data: $(this).serialize()
+	});
+	return false;
+});
+");
 ?>
 
-<h1>Управление услугами</h1>
-<?php
-$this->widget('bootstrap.widgets.TbButton', array(
-    'buttonType'=>'link',
-    'type'=>'primary',
-    'label'=>'Создать новую услугу',
-    'url' => array('services/create'),
-));
-?>
+<h1>Manage Services</h1>
 
-<?php $this->widget('bootstrap.widgets.TbGridView', array(
-    'id' => 'services-form',
-    'type'=>'striped bordered condensed',
-    'dataProvider'=>$model->search(),
-    'filter'=>$model,
-    'template' => '{items}',
-    'columns'=>array(
-        array(
-            'class'=>'CCheckBoxColumn',
-            'id'=>'itemsSelected',
-            'selectableRows' => '2',
-            'htmlOptions' => array(
-                'class'=>'center',
-            ),
-        ),
-//        array('name'=>'id', 'header'=>'ID', 'sortable'=>false, 'filter'=>false),
-        array(
-            'name' => 'status',
-            'header' => 'Статус',
-            'value' => '($data->status == 1) ? "Активно" : "Неактивно"',
-            'sortable' => false,
-            'filter' => array(0=>'Неактивно', 1=>'Активно'),
-        ),
-        array('name'=>'title',
-            'header'=>'Название категории',
-            'value'=>'$data->title',
-            'sortable' => false,
-        ),
-        array('name'=>'announcement',
-            'header'=>'Анонс',
-            'sortable' => false,),
-        array('name'=>'content',
-            'header'=>'Текст',
-            'sortable' => false,),
+<p>
+You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
+or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
+</p>
 
-        array(
-            'class'=>'bootstrap.widgets.TbButtonColumn',
-            'template'=>'{up}{down}{view}{update}{delete}',
-            'viewButtonUrl' => "Yii::app()->createUrl('services/view', array('id' => \$data->id))",
-            'htmlOptions' => array('class'=>'width120'),
-            'buttons' => array(
-                'up' => array(
-                    'label' => 'Поднять вверх',
-                    'imageUrl' => $url = Yii::app()->assetManager->publish(
-                        Yii::getPathOfAlias('zii.widgets.assets.gridview').'/up.gif'
-                    ),
-                    'url'=>'Yii::app()->createUrl("/apartments/backend/main/move", array("id"=>$data->id, "direction" => "down", "catid" => "0"))',
-                    'options' => array('class'=>'infopages_arrow_image_up'),
+<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<div class="search-form" style="display:none">
+<?php $this->renderPartial('_search',array(
+	'model'=>$model,
+)); ?>
+</div><!-- search-form -->
 
-//                    'visible' => '$data->sorter < "'.$maxSorter.'"',
-                    'click' => "js: function() { ajaxMoveRequest($(this).attr('href'), 'category-form'); return false;}",
-                ),
-                'down' => array(
-                    'label' => 'Опустить вниз',
-                    'imageUrl' => $url = Yii::app()->assetManager->publish(
-                        Yii::getPathOfAlias('zii.widgets.assets.gridview').'/down.gif'
-                    ),
-                    'url'=>'Yii::app()->createUrl("/apartments/backend/main/move", array("id"=>$data->id, "direction" => "up", "catid" => "0"))',
-                    'options' => array('class'=>'infopages_arrow_image_down'),
-//                    'visible' => '$data->sorter > 1',
-                    'click' => "js: function() { ajaxMoveRequest($(this).attr('href'), 'category-form'); return false;}",
-                ),
-            ),
-            'htmlOptions'=>array('style'=>'width: 100px'),
-        ),
-    )));
-?>
-<!--<div id="confirmDiv"></div>
-<div class='gridview-control-line'>
-    <?php
-/*    echo CHtml::beginForm($this->createUrl($url), 'post', array('id'=>'itemsSelected-form'));
-    */?>
-    <img alt="" src="<?php /*echo Yii::app()->request->baseUrl; */?>/images/arrow_ltr.png"/>
-    <?php
-/*    echo Yii::t('common', 'With selected').': ';
-    echo CHtml::DropDownList('workWithItemsSelected', $model->WorkItemsSelected, $options).' ';
-
-    Yii::app()->clientScript->registerScript('confirm-mass-action', "
-			function processMassAction(){
-				$('#itemsSelected-form input[name=\"itemsSelected[]\"]').remove();
-				$('#".$id." input[name=\"itemsSelected[]\"]:checked').each(function(){
-					$('#itemsSelected-form').append('<input type=\"hidden\" name=\"itemsSelected[]\" value=\"' + $(this).val() + '\" />');
-				});
-				$.ajax({
-					type: 'post',
-					url: '".$this->createUrl($url)."',
-					data: $('#itemsSelected-form').serialize(),
-					success: function (html) {
-						$.fn.yiiGridView.update('".$id."');
-					},
-				});
-			}
-		", CClientScript::POS_END);
-
-    echo CHtml::button(
-        Yii::t('common', 'Do'),
-        array(
-            'class' => 'btn btn-primary',
-            'onclick' => "
-					if($('#workWithItemsSelected').val() != 'delete'){
-						processMassAction();
-					} else {
-						$(\"#confirmDiv\").confirmModal({
-							heading: '".tc('Request for confirmation')."',
-							body: '".tc('Are you sure?')."',
-							confirmButton: '".tc('Yes')."',
-							closeButton: '".tc('Cancel')."',
-							callback: function () {
-								processMassAction();
-							}
-						});
-					}
-
-					return false;
-				",
-        )
-    );
-    echo CHtml::endForm(); */?>
-</div>-->
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'services-grid',
+	'dataProvider'=>$model->search(),
+	'filter'=>$model,
+	'columns'=>array(
+		'id',
+		'title',
+		'content',
+		'active',
+		'date',
+		'announcement',
+		/*
+		'link',
+		'author_id',
+		'category_id',
+		*/
+		array(
+			'class'=>'CButtonColumn',
+		),
+	),
+)); ?>

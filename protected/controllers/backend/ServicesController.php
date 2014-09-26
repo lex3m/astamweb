@@ -2,7 +2,41 @@
 
 class ServicesController extends BackEndController
 {
+    /**
+     * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
+     * using two-column layout. See 'protected/views/layouts/column2.php'.
+     */
+    public $layout='//layouts/column2';
 
+    /**
+     * @return array action filters
+     */
+    public function filters()
+    {
+        return array(
+            'accessControl', // perform access control for CRUD operations
+            'postOnly + delete ', // we only allow deletion via POST request
+            'ajaxOnly + processMass'
+        );
+    }
+
+    /**
+     * Specifies the access control rules.
+     * This method is used by the 'accessControl' filter.
+     * @return array access control rules
+     */
+    public function accessRules()
+    {
+        return array(
+            array('allow', // allow admin and moder user
+                'actions'=>array('create','update', 'activate', 'index','view','admin','delete', 'processMass'),
+                'roles' => array(User::ROLE_MODER, User::ROLE_ADMIN),
+            ),
+            array('deny',  // deny all users
+                'users'=>array('*'),
+            ),
+        );
+    }
 
 	/**
 	 * Displays a particular model.
@@ -22,9 +56,9 @@ class ServicesController extends BackEndController
 	public function actionCreate()
 	{
 		$model=new Services;
-
+        $model->scenario = 'create';
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		 $this->performAjaxValidation($model);
 
 		if(isset($_POST['Services']))
 		{
@@ -46,9 +80,9 @@ class ServicesController extends BackEndController
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
+        $model->scenario = 'update';
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		 $this->performAjaxValidation($model);
 
 		if(isset($_POST['Services']))
 		{
@@ -86,7 +120,7 @@ class ServicesController extends BackEndController
         if(isset($_GET['Services']))
             $model->attributes=$_GET['Services'];
 
-        $this->render('admin',array(
+        $this->render('index',array(
             'model'=>$model,
         ));
 	}
@@ -105,6 +139,46 @@ class ServicesController extends BackEndController
 			'model'=>$model,
 		));
 	}
+
+    /**
+     * Set active / inactive category
+     * @throws CHttpException
+     */
+    public function actionActivate()
+    {
+        if (Yii::app()->request->isAjaxRequest && isset($_GET['ajax'])) {
+            $id = (int)Yii::app()->request->getParam('id');
+            $action = Yii::app()->request->getParam('action');
+            $model = Yii::app()->request->getParam('model');
+            if($this->activate($id, $action, $model))
+                return true;
+        } else {
+            $this->redirect('index');
+        }
+    }
+
+    /**
+     * Process category actions update, delete
+     */
+    public function actionProcessMass()
+    {
+        if (isset($_POST['Services']) && !empty($_POST['itemsSelected'])) {
+            $type = Yii::app()->request->getPost('Services');
+            $itemsSelected = Yii::app()->request->getPost('itemsSelected');
+            foreach($itemsSelected as $k => $v) {
+                $model=$this->loadModel($v);
+                switch($type['workWithItemsSelected']) {
+                    case 'activate': $model->active = 1; $model->update();break;
+                    case 'deactivate': $model->active = 0; $model->update();break;
+                    case 'delete': $model->delete(); break;
+                }
+            }
+
+        }
+        // if AJAX request (triggered by process category via admin grid view), we should not redirect the browser
+        if(!isset($_GET['ajax']))
+            $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('index'));
+    }
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
