@@ -134,6 +134,12 @@ margin-top: -20px;
 .pochta:hover {
     text-decoration: underline;
 }
+.telwerh {
+    color: #ff8603;
+    float: left;
+    font-size: 23px;
+    padding: 8px 18px 0 0;
+}
 
 .sotcheader {
     float: right;
@@ -187,8 +193,8 @@ margin-top: -20px;
     width: 214px;
 }
 #zakaz1 {
-    background: url("../images/narezka/arr_zakazat.png") no-repeat scroll 182px center #2296B9;
-    border: 1px solid #2296B9;
+    background: url("../images/narezka/arr_zakazat.png") no-repeat scroll 182px center #17c560;
+    border: 1px solid #00A344;
     display: block;
 	margin: 0 30px 17px 0;
     padding: 10px 17px;
@@ -277,6 +283,7 @@ box-shadow:         0px 0px 20px 0px rgba(50, 50, 50, 0.51);
 .fader .slide a img {
    width: 100%;
    display: block;
+   height: auto;
 }
 
 .fader .prev,
@@ -485,6 +492,7 @@ box-shadow:         0px 0px 20px 0px rgba(50, 50, 50, 0.51);
 }
 .allsite a {
     color: #FFFFFF;
+	cursor: default;
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
@@ -646,7 +654,7 @@ a.restoran span {
     display: inline-block;
 }
 .uslugy .uslugy_box div div ul li a, .uslugy4 div.cel span {
-    border-right: 3px solid #000000;
+   /* border-right: 3px solid #000000;*/
     color: #000000;
     font-size: 34px;
     font-weight: bold;    
@@ -1254,7 +1262,13 @@ a.restoran span {
     line-height: 56px;
     text-align: center;
     text-transform: uppercase;
-	padding-bottom: 95px;
+	padding-bottom: 30px;
+}
+.perezwon {
+    color: #1d9aca;
+    font-size: 24px;
+    padding-bottom: 60px;
+    text-align: center;
 }
 .img_kont {
     left: -100px;
@@ -1387,7 +1401,7 @@ a.restoran span {
 	color: #FFFFFF;
 	padding-left: 60px;
 	line-height: 26px;
-	padding-top: 3px;
+	padding-top: 16px;
 }
 .footer_mail a {
     color: #FFFFFF;
@@ -1438,7 +1452,7 @@ a.restoran span {
     position: fixed;
 	bottom: 0;
 	right: 1%;
-	z-index: 999999;
+	z-index: 99;
 }
 
 
@@ -1614,10 +1628,10 @@ padding: 8px 7px;
 	background-size: 100%;
 }
 .navslider2 {
-    height: 135px;
+    height: 165px;
 }
 .slider_site .fader_controls {
-    height: 289px;
+    height: 280px;
 }
 
 /*.preimuchestva {
@@ -1964,7 +1978,11 @@ a.restoran span {
 }
 .kontakts h3 {
     font-size: 36px;
-	padding-bottom: 45px;
+	padding-bottom: 0px;
+}
+.perezwon {
+    font-size: 18px;
+    padding-bottom: 40px;
 }
 .kontaktform {
     width: 520px;

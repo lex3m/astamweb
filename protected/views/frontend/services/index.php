@@ -51,7 +51,7 @@ $this->breadcrumbs=array(
         <div class="uslugy_box">
             <div class="usl_div uslugy1">
                 <ul class="uslugy_ul">
-                    <?php foreach ($model as $value): ?>
+                    <?php foreach ($model as $value): echo $value->category->name; ?>
                         <li>
                             <div class="cel">
                                 <a href="<?php echo $this->createUrl('services/view',array('id'=>$value->id));?>" class="bn"><?php echo $value->title;?></a>

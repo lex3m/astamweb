@@ -74,43 +74,46 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
     <div class="slider_col1">
 
         <div class="fader slider_pril">
-            <div class="slide" style="opacity: 1;"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/block1_leftt_1.jpg"  height="372" alt=""  /></a>
+            <div class="slide" style="opacity: 1;">
+                <a href="<?php echo Yii::app()->createUrl('portfolio/apps');?>" class="a_slid">
+                    <img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/block1_leftt_1.jpg"  height="372" alt=""  />
+                </a>
             </div>
-            <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_2.jpg"  alt=""  /></a>
+            <!--<div class="slide"><a href="#2" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_2.jpg"  alt=""  /></a>
             </div>
-            <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_3.jpg"  alt=""  /></a>
+            <div class="slide"><a href="#3" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_3.jpg"  alt=""  /></a>
             </div>
-            <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_4.jpg"  alt=""  /></a>
-            </div>
+            <div class="slide"><a href="#4" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_4.jpg"  alt=""  /></a>
+            </div>-->
 
             <div class="fader_controls navslider2">
-                <ul class="pager_list">
+               <!-- <ul class="pager_list">
                     <li class="page" data-target="0">1</li>
                     <li class="page" data-target="1">2</li>
                     <li class="page" data-target="2">3</li>
                     <li class="page" data-target="3">4</li>
-                </ul>
+                </ul>-->
             </div>
         </div><!-- end slider_pril -->
 
 
         <div class="fader slider_razrabot">
-            <div class="slide" style="opacity: 1;"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/block1_leftt_2.jpg" height="372" alt=""  /></a>
+            <div class="slide" style="opacity: 1;"><a href="<?php echo Yii::app()->createUrl('portfolio/promotions');?>" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/block1_leftt_2.jpg" height="372" alt=""  /></a>
             </div>
-            <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_2.jpg"  alt=""  /></a>
+            <!--<div class="slide"><a href="#" class="a_slid"><img src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/slider1/img1_2.jpg"  alt=""  /></a>
             </div>
-            <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_3.jpg"  alt=""  /></a>
+            <div class="slide"><a href="#" class="a_slid"><img src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/slider1/img1_3.jpg"  alt=""  /></a>
             </div>
-            <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_4.jpg"  alt=""  /></a>
-            </div>
+            <div class="slide"><a href="#" class="a_slid"><img src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/slider1/img1_4.jpg"  alt=""  /></a>
+            </div>-->
 
             <div class="fader_controls navslider2">
-                <ul class="pager_list">
+                <!--<ul class="pager_list">
                     <li class="page" data-target="0">1</li>
                     <li class="page" data-target="1">2</li>
                     <li class="page" data-target="2">3</li>
                     <li class="page" data-target="3">4</li>
-                </ul>
+                </ul>-->
             </div>
         </div><!-- end slider_razrabot -->
     </div><!-- end slider_col1 -->
@@ -118,22 +121,22 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
     <div class="slider_col2">
 
         <div class="fader slider_site">
-            <div class="slide" style="opacity: 1;"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/block1_center.jpg"  alt=""  /></a>
+            <div class="slide" style="opacity: 1;"><a href="<?php echo Yii::app()->createUrl('portfolio/sites');?>" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/block1_center.jpg"  alt=""  /></a>
             </div>
-            <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_2.jpg"  alt=""  /></a>
+           <!-- <div class="slide"><a href="#" class="a_slid"><img src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/slider1/img1_2.jpg"  alt=""  /></a>
             </div>
-            <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_3.jpg"  alt=""  /></a>
+            <div class="slide"><a href="#" class="a_slid"><img src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/slider1/img1_3.jpg"  alt=""  /></a>
             </div>
-            <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_4.jpg"  alt=""  /></a>
-            </div>
+            <div class="slide"><a href="#" class="a_slid"><img src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/slider1/img1_4.jpg"  alt=""  /></a>
+            </div>-->
 
             <div class="fader_controls navslider2">
-                <ul class="pager_list">
+                <!--<ul class="pager_list">
                     <li class="page" data-target="0">1</li>
                     <li class="page" data-target="1">2</li>
                     <li class="page" data-target="2">3</li>
                     <li class="page" data-target="3">4</li>
-                </ul>
+                </ul>-->
             </div>
         </div><!-- end slider_site -->
 
@@ -141,42 +144,42 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
     <div class="slider_col3">
 
         <div class="fader slider_video">
-            <div class="slide" style="opacity: 1;"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/block1_right_1.jpg" height="372" alt=""  /></a>
+            <div class="slide" style="opacity: 1;"><a href="<?php echo Yii::app()->createUrl('portfolio/videos');?>" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/block1_right_1.jpg" height="372" alt=""  /></a>
             </div>
-            <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_2.jpg"  alt=""  /></a>
+           <!-- <div class="slide"><a href="#" class="a_slid"><img src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/slider1/img1_2.jpg"  alt=""  /></a>
             </div>
-            <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_3.jpg"  alt=""  /></a>
+            <div class="slide"><a href="#" class="a_slid"><img src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/slider1/img1_3.jpg"  alt=""  /></a>
             </div>
-            <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_4.jpg"  alt=""  /></a>
-            </div>
+            <div class="slide"><a href="#" class="a_slid"><img src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/slider1/img1_4.jpg"  alt=""  /></a>
+            </div>-->
 
             <div class="fader_controls navslider2">
-                <ul class="pager_list">
+                <!--<ul class="pager_list">
                     <li class="page" data-target="0">1</li>
                     <li class="page" data-target="1">2</li>
                     <li class="page" data-target="2">3</li>
                     <li class="page" data-target="3">4</li>
-                </ul>
+                </ul>-->
             </div>
         </div><!-- end slider_video -->
 
         <div class="fader slider_nastroy">
-            <div class="slide" style="opacity: 1;"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/block1_right_2.jpg" height="372" alt=""  /></a>
+            <div class="slide" style="opacity: 1;"><a href="<?php echo Yii::app()->createUrl('portfolio/ads');?>" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/block1_right_2.jpg" height="372" alt=""  /></a>
             </div>
-            <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_2.jpg"  alt=""  /></a>
+            <!--<div class="slide"><a href="#" class="a_slid"><img src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/slider1/img1_2.jpg"  alt=""  /></a>
             </div>
-            <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_3.jpg"  alt=""  /></a>
+            <div class="slide"><a href="#" class="a_slid"><img src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/slider1/img1_3.jpg"  alt=""  /></a>
             </div>
-            <div class="slide"><a href="#" class="a_slid"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider1/img1_4.jpg"  alt=""  /></a>
-            </div>
+            <div class="slide"><a href="#" class="a_slid"><img src="<?php /*echo Yii::app()->theme->baseUrl; */?>/images/slider1/img1_4.jpg"  alt=""  /></a>
+            </div>-->
 
             <div class="fader_controls navslider2">
-                <ul class="pager_list">
+               <!-- <ul class="pager_list">
                     <li class="page" data-target="0">1</li>
                     <li class="page" data-target="1">2</li>
                     <li class="page" data-target="2">3</li>
                     <li class="page" data-target="3">4</li>
-                </ul>
+                </ul>-->
             </div>
         </div><!-- end slider_nastroy -->
 
@@ -245,7 +248,7 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
                             <a href="#"><span>поддержка</span> сайтов </a>
                             <span class="usl_info">созданных нами продуктов</span>
                         </div>
-                        <a class="usl_right">В комплекте</a>
+                        <a class="usl_right">заказать</a>
                     </li>
                 </ul>
             </div>
@@ -284,10 +287,10 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
                     </li>
                     <li>
                         <div class="cel">
-                            <a href="#"><span>съемки </span> роликов </a>
-                            <span class="usl_info"> на камеру</span>
+                            <a href="#"><span>рекламные </span> ролики </a>
+                            <span class="usl_info"> 3D</span>
                         </div>
-                        <a href="#kontakts" class="usl_right">Расчитать</a>
+                        <a href="#kontakts" class="usl_right">заказать</a>
                     </li>
                     <li>
                         <div class="cel">
@@ -309,9 +312,9 @@ Yii::app()->getClientScript()->registerScript('initscripts', $initScripts,  CCli
             <div class="cel cel_us4">
                 <span>Мн. другое...</span>
             </div>
-            <div class="cel cel_us5">
+            <!-- <div class="cel cel_us5">
                 <a href="<?php echo Yii::app()->baseUrl; ?>/services" class="usl_info"> посмотреть список  </a>
-            </div>
+            </div> -->
         </div>
 
     </div>

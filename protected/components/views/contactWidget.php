@@ -21,6 +21,7 @@ Yii::app()->getClientScript()->registerScript('tooltip', $tooltipster,  CClientS
 
 <article class="kontakts" id="kontakts">
 <h3 class="kont_h3">Связаться с нами</h3>
+<p class="perezwon">Напишите нам, и мы Вам перезвоним.</p>
 
 <img alt="Контакты" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/bg_kontakts.jpg" class="img_kont_ie" />
 <img alt="Контакты" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/bg_kontakts.jpg" class="img_kont" />

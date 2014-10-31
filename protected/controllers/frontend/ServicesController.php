@@ -5,6 +5,13 @@ class ServicesController extends FrontEndController
 	public function actionIndex()
 	{
         $model = Services::model()->findAll();
+        $data = array();
+        foreach ($model as $value) {
+            if ($value->category->parent_cat_id == 0)
+                $data[$value->category->id] = $value;
+            else
+                $data[$value->category->parent_cat_id] =  $value;
+        }
 		$this->render('index', array('model'=>$model));
 	}
 

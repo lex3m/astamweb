@@ -96,7 +96,11 @@
                     </menu>
 
                     <div class="swyazverh">
+					    <div class="telwerh">
+						    8 966 116 72 40
+						</div>
                         <a href="#kontakts" class="pochta">Напишите нам</a>
+						
                         <div class="sotcheader">
                             <a class="vk" href="https://vk.com/topsu_ru"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="logo"></a>
                             <a class="ok" href="http://www.ok.ru/profile/573212817936/statuses"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/narezka/prozrachnyi.png" alt="logo"></a>
@@ -154,15 +158,18 @@
 <?php
 $scroll = <<<scr
   $(function() {
-        $('a[href*=#]:not([href=#])').click(function() {
+        $('a[href*=#]:not([href=#])').click(function(e) {
+            e.preventDefault();
             if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
                 var target = $(this.hash);
                 target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
                 if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
+                    if(!$('html,body').is(':animated')) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
                 }
             }
         });

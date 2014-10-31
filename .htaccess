@@ -11,7 +11,6 @@ RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 # Make the backend accessible via url: http://site/admin.
 RewriteRule ^admin admin.php
 
-
 # не позволять httpd отдавать файлы, начинающиеся с точки (.htaccess, .svn, .git и прочие)
 RedirectMatch 403 /\..*$
 # если директория или файл существуют, использовать их напрямую
